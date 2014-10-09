@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+package Euclidean_rotate;
+
 use strict;
 use warnings;
 use Data::Dumper;
@@ -10,12 +12,13 @@ use Math::Round;
 use 5.10.1;
 
 #my $pi = Math::BigFloat->bpi(29);
+## generate random degrees (0 < x < 180)
 
-my ($x, $y, $theta) = @ARGV;
+#my ($x, $y, $theta) = @ARGV;
 
-my ($vector) = &Euclidean_Rotate($x, $y, $theta);
+#my ($vector) = &Euclidean_Rotate($x, $y, $theta);
 
-say  $vector;
+#say  $vector;
 
 sub Euclidean_Rotate{
 
@@ -42,3 +45,5 @@ sub RotationMatrix{
 
   return ($matrix);
 };
+
+1;
