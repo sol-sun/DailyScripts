@@ -4,17 +4,27 @@ use strict;
 use warnings;
 use SVG;
 
+
+my $sm_width = 100;
+my $sm_height = 100;
+my $sm_center = (${sm_width}/2);
+my $circle_size = ($sm_center/2);
+
 # SVG opbject generate
-my $svg = SVG->new(width=>100, height=>100);
+my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 #
 
 my $y = $svg->group(
 		    id =>'group_y',
-		    style => { stroke=>'transparent', fill=>'rgb(131, 204, 210)'}
+		    style => { 'stroke-width'=>'7', 'stroke'=>'rgb(131, 204, 210)', 'fill'=>'white'}
 		   );
 
-$y->circle(cx=>40, cy=>69.2, r=>10,
+## Quation Level 1 => Select similar object;
+
+$y->circle(cx=>${sm_center}, cy=>${sm_center}, r=>${circle_size},
 	   id=>'circle_in_group_y');
+
+##.
 
 =pod
 my $z = $svg->tag(

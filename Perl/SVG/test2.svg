@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg[
+    <!ATTLIST circle r CDATA "25"
+cx CDATA "50"
+cy CDATA "50"
+>
+]>
+<svg width="150px" height="150px" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <style>
+        circle{
+            stroke:blue;
+            stroke-width:20;
+            stroke-opacity:0.6F;
+        }
+    </style>
+    <circle fill="skyblue"/>
+    <circle fill="skyblue" cx="150"/>
+    <circle fill="skyblue" cy="150"/>
+    <circle fill="skyblue" cx="150" cy="150"/>
+    <circle fill="skyblue"  >
+</svg>

@@ -1,11 +1,24 @@
+<svg:svg height="300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg:g height="100" width="100">
 
-<svg:svg height="100" width="100" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<svg:g id="group_y" style="fill: rgb(131, 204, 210); stroke: transparent">
-		<svg:circle cx="40" cy="69.2" id="circle_in_group_y" r="10" />
+	<svg:g id="group_y" style="fill: white; stroke: rgb(131, 204, 210); stroke-width: 6">
+		<svg:circle cx="50" cy="50" id="circle_in_group_y" r="25" />
 	</svg:g>
 	<!-- 
 	Generated using the Perl SVG Module V2.59
 	by Ronan Oger
 	Info: http://www.roitsystems.com/
  -->
+</svg:g>
+<svg:g height="100" width="100">
+
+	<svg:g id="group_x" style="fill: white; stroke: rgb(131, 204, 210); stroke-width: 6">
+		<svg:circle cx="150" cy="50" id="circle_in_group_x" r="25" />
+	</svg:g>
+	<!-- 
+	Generated using the Perl SVG Module V2.59
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
+</svg:g>
 </svg:svg>
