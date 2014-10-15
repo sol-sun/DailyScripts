@@ -1,6 +1,5 @@
 // Playground - noun: a place where people can play
 
-import UIkit;
 
 var n:Int = 0;
 
@@ -55,11 +54,26 @@ class Hello:Helo{
 }
 
 
-var obj:Helo = Helo(name:"Taro");
-obj.say();
+class Friend {
+    var name:String
+    
+    init (name:String){
+        self.name = name;
+    }
+}
 
+class BestFriend : Friend {
+    var age:Int;
+    
+    init (name:String, age:Int){
+        self.age = age;
+        super.init(name:name);
+    }
 
+}
 
+var obj:BestFriend = BestFriend(name:"Taro", age: 30);
+println("\(obj.name) (\(obj.age))");
 
 
 

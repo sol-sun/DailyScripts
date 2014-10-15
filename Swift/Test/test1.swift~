@@ -1,0 +1,9 @@
+//#!/Applications/Xcode-Beta.app/Contents/Developer/usr/bin/xcrun swift
+
+import Cocoa
+
+var alert = NSAlert();
+
+alert.messageText = "Hello, Swift";
+
+alert.runModal();

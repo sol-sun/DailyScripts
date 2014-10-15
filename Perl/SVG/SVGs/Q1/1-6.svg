@@ -1,6 +1,6 @@
 
 <svg:svg height="200" width="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<svg:g id="group_y" style="fill: white; stroke: rgb(131, 204, 210); background: white; stroke-width: 7">
+	<svg:g id="group_y" style="fill: white; stroke: rgb(131, 204, 210); stroke-width: 7; background: white">
 		<svg:circle cx="100" cy="100" id="circle_in_group_y" r="50" />
 	</svg:g>
 	<!-- 
