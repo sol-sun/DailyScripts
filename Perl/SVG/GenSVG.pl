@@ -52,7 +52,7 @@ sub Tiler{
 
   my ($img, @coords) = tile(
 			    Images => [@$files],
-			    Background => 'transparent',
+			    Background => 'white',
 			    Center => 0,
 			   );
     unless($img){die $!;}
@@ -77,7 +77,7 @@ my $svg = SVG->new(width=>${sm_width}, height=>${sm_height} );
 
 my $y = $svg->group(
 		    id =>'group_y',
-		    style => { 'stroke-width'=>'7', 'stroke'=>'rgb(131, 204, 210)', 'fill'=>'white'}
+		    style => { 'stroke-width'=>'7', 'stroke'=>'rgb(131, 204, 210)', 'fill'=>'white', 'background' =>'white'}
 		   );
 
 ## Quation Level 1 => Select similar object;

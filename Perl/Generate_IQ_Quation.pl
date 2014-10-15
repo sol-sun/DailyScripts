@@ -18,10 +18,6 @@ srand time^$$;
 print &Euclidean_rotate::Euclidean_Rotate(80,0,(pi/3));
 
 
-
-
-
-
 sub Random_Degree_Generate{ ### 15 or 45 or 60 or 90 or 120 or 135
 
   my $Degree;
