@@ -65,7 +65,9 @@ sub Tiler{
 }
   
 sub Quation_Level1{
-
+  
+  ## 6 objects
+  
 my $sm_width = 200;
 my $sm_height = 200;
 my $sm_center = (${sm_width}/2);
@@ -91,6 +93,7 @@ $svg->xmlify(
 	     -pubid => "-//W3C//DTD SVG 1.0//EN",
 	     -inline => 1
 	    );
+
 }
 
 print STDERR "\n";

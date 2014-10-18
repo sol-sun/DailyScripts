@@ -1,0 +1,35 @@
+
+<svg height="600" width="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Cell_1-1" style="stroke: #0080ff; fill: white; stroke-width: 7; background: black">
+		<circle cx="100" cy="100" r="70" />
+	</g>
+	<g id="Cell_1-2" style="background: black; stroke-width: 7; fill: white; stroke: #0080ff">
+		<circle cx="300" cy="100" r="70" />
+	</g>
+	<g id="Cell_1-3" style="stroke: #0080ff; fill: white; stroke-width: 7; background: black">
+		<circle cx="500" cy="100" r="70" />
+	</g>
+	<g id="Cell_2-1" style="stroke-width: 7; fill: white; stroke: #0080ff; background: black">
+		<circle cx="100" cy="300" r="70" />
+	</g>
+	<g id="Cell_2-2" style="stroke: #0080ff; fill: white; stroke-width: 7; background: black">
+		<circle cx="300" cy="300" r="70" />
+	</g>
+	<g id="Cell2_3" style="background: black; stroke-width: 7; fill: white; stroke: #0080ff">
+		<circle cx="500" cy="300" r="70" />
+	</g>
+	<g id="Cell_3-1" style="stroke: #0080ff; fill: white; stroke-width: 7; background: black">
+		<circle cx="100" cy="500" r="70" />
+	</g>
+	<g id="Cell_3-2" style="fill: white; stroke: #0080ff; stroke-width: 7; background: black">
+		<circle cx="300" cy="500" r="70" />
+	</g>
+	<g id="Cell3_3" style="background: black; fill: white; stroke: #0080ff; stroke-width: 7">
+		<circle cx="500" cy="500" r="70" />
+	</g>
+	<!-- 
+	Generated using the Perl SVG Module V2.59
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
+</svg>
