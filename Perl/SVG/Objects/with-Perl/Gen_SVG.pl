@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use SVG;
 use Data::Dumper;
+use lib '../../../Math';
+use Question1;
 
 my $sm_width = 600;
 my $sm_height = 600;
@@ -11,16 +13,13 @@ my $sm_center = 600/3;
 my $setoff_x = 100;
 my $setoff_y = 100;
 
-
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-
-#my $rand = rand(3);
-#print $rand;
 &Level1_1;
 
-
 sub Level1_1{ ## most easy IQ question  # one type objects are listed
+
+  my @questions = &IQ_Problem::Question1();
   
   ## Cell_3-3 is empty for set question_mark
   my @ids = (
@@ -29,33 +28,39 @@ sub Level1_1{ ## most easy IQ question  # one type objects are listed
 	     ["Cell_3-1", "Cell_3-2", "Cell_3-3"]
 	    );
   ##
-
+  my $counter = 0;
   ## Question 1
   for(my $i=0;$i<scalar(@ids);$i++){
     for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
       my $x = ( ($setoff_x * 2) * $j) + $setoff_x;
       my $y = ( ($setoff_y * 2) * $i) + $setoff_y;
-
+      
       &Objects('circle', $x, $y, "50", "$ids[$i][$j]"."_Circle");
       # &Objects('triangle', $x, $y, 140, $ids[$i][$j]);
-      my $top_x = $x -25;
-      my $top_y = $y -60;
-      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", "50");
-      
-      my $left_x = $x - 80;
-      my $left_y = $y + 65;
-      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text","70");
-      
-      my $right_x = $x + 30;
-      my $right_y = $y + 65;
-      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text","60");
+
+      my @change_xy = &number_offset($questions[$counter][3]);
+      my $top_x = $x - 22 + $change_xy[0];
+      my $top_y = $y - 60 + $change_xy[1];
+
+      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3]);
+
+      @change_xy = &number_offset($questions[$counter][2]);
+      my $left_x = $x - 80 + $change_xy[0];
+      my $left_y = $y + 68 + $change_xy[1];
+      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2]);
+
+      @change_xy = &number_offset($questions[$counter][1]);
+      my $right_x = $x + 35 + $change_xy[0];
+      my $right_y = $y + 68 + $change_xy[1];
+      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1]);
 
       if($j != 2 || $i != 2){
-	my $center_x = $top_x;
+	my $center_x = $x - 22;
 	my $center_y = ($left_y - 50);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "12");
-
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0]);
+	
       }
+      $counter++;
     }
   }
   &Objects('question', 400, 400);
@@ -65,11 +70,16 @@ sub Level1_1{ ## most easy IQ question  # one type objects are listed
 }
 
 sub Level1_2{ ## numerical question
-  
 
 }
 
+sub number_offset{
 
+  if(length(shift()) == 1){
+    return (9,0);
+  }else{return(0,0);}
+
+}
 
 sub Objects{
   
@@ -83,29 +93,8 @@ sub Objects{
     my $scale = 0.5;
 
 
-    if($scale != 1){
-#      $translate{'x'} = -$translate{'x'} * ($scale -1);
-#      $translate{'y'} = -$translate{'y'} * ($scale -1);
-      #    $translate{'x'} += ($translate{'x'} * (1 - $scale)) * 2;
-      #    $translate{'y'} += ($translate{'y'} * (1 - $scale)) * 3;
-    }
-
     $translate{'y'} += ( -95 + (((1-$scale)*98) * 2) );
-    $translate{'x'} += ( -8 + (((1-$scale)*10) * 11) );#( -98 + (((1-$scale)*98)));
-    
-    
-    #$translate{'y'} += 90;
-    
-    #    $translate{'x'} += 90;
-    #    $translate{'y'} += 80;
-    
-    #        $translate{'x'} += 5 - 5*(1 - $scale);   
-    #        $translate{'y'} -= 98 - 98*(1 -$scale)*2;
- 
-    
-    #         $translate{'x'} += 5 - 5*(1 - $scale);   
-    #        $translate{'y'} -= 98 - 98*(1 -$scale)*2;
-    
+    $translate{'x'} += ( -8 + (((1-$scale)*10) * 11) );
     
     my $d = q(
 M64.028,167.543
