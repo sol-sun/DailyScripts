@@ -11,32 +11,101 @@ my $sm_center = 600/3;
 my $setoff_x = 100;
 my $setoff_y = 100;
 
+
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-my @ids = (
-	   ["Cell_1-1", "Cell_1-2", "Cell_1-3"],
-	   ["Cell_2-1", "Cell_2-2", "Cell2_3"],
-	   ["Cell_3-1", "Cell_3-2", "Cell3_3"]
-	  );
 
-for(my $i=0;$i<scalar(@ids);$i++){
-  for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
-    my $x = ( ($setoff_x * 2) * $j) + $setoff_x;
-    my $y = ( ($setoff_y * 2) * $i) + $setoff_y;
-    
-    &Objects('circle', $x, $y, "70", $ids[$i][$j]);
-    
+#my $rand = rand(3);
+#print $rand;
+&Level1_1;
+
+
+sub Level1_1{ ## most easy IQ question  # one type objects are listed
+  
+  ## Cell_3-3 is empty for set question_mark
+  my @ids = (
+	     ["Cell_1-1", "Cell_1-2", "Cell_1-3"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3"]
+	    );
+  ##
+
+  ## Question 1
+  for(my $i=0;$i<scalar(@ids);$i++){
+    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+      my $x = ( ($setoff_x * 2) * $j) + $setoff_x;
+      my $y = ( ($setoff_y * 2) * $i) + $setoff_y;
+
+      &Objects('circle', $x, $y, "50", "$ids[$i][$j]"."_Circle");
+      # &Objects('triangle', $x, $y, 140, $ids[$i][$j]);
+      my $top_x = $x -25;
+      my $top_y = $y -60;
+      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", "50");
+      
+      my $left_x = $x - 80;
+      my $left_y = $y + 65;
+      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text","70");
+      
+      my $right_x = $x + 30;
+      my $right_y = $y + 65;
+      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text","60");
+
+      if($j != 2 || $i != 2){
+	my $center_x = $top_x;
+	my $center_y = ($left_y - 50);
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "12");
+
+      }
+    }
   }
+  &Objects('question', 400, 400);
+  
+
+  ##
 }
+
+sub Level1_2{ ## numerical question
+  
+
+}
+
+
 
 sub Objects{
   
   my $type = shift @_;
+
   
   if($type eq 'question'){
     
     my %translate = ('x', shift @_, 'y', shift @_);    
+    
+    my $scale = 0.5;
 
+
+    if($scale != 1){
+#      $translate{'x'} = -$translate{'x'} * ($scale -1);
+#      $translate{'y'} = -$translate{'y'} * ($scale -1);
+      #    $translate{'x'} += ($translate{'x'} * (1 - $scale)) * 2;
+      #    $translate{'y'} += ($translate{'y'} * (1 - $scale)) * 3;
+    }
+
+    $translate{'y'} += ( -95 + (((1-$scale)*98) * 2) );
+    $translate{'x'} += ( -8 + (((1-$scale)*10) * 11) );#( -98 + (((1-$scale)*98)));
+    
+    
+    #$translate{'y'} += 90;
+    
+    #    $translate{'x'} += 90;
+    #    $translate{'y'} += 80;
+    
+    #        $translate{'x'} += 5 - 5*(1 - $scale);   
+    #        $translate{'y'} -= 98 - 98*(1 -$scale)*2;
+ 
+    
+    #         $translate{'x'} += 5 - 5*(1 - $scale);   
+    #        $translate{'y'} -= 98 - 98*(1 -$scale)*2;
+    
     
     my $d = q(
 M64.028,167.543
@@ -55,9 +124,10 @@ c3.525,0,6.491,1.204,8.898,3.61c2.406,2.406,3.61,5.372,3.61,8.898c0,3.918-1.259,
 C111.205,258.427,108.295,259.546,104.993,259.546L104.993,259.546z
 );
     
+    
     my $question_mark = $svg->group(
 				    id => 'Question_Mark',
-				    transform => "translate($translate{'x'}, $translate{'y'})"
+				    transform => "translate($translate{'x'},$translate{'y'}),scale($scale)"
 				   );
     
     $question_mark->path(
@@ -88,23 +158,56 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
     
     return 1;
     
-    
   }elsif($type eq 'circle'){
-    
     
     my ($x, $y, $circle_size, $id) = @_;
     
-
     my $circle = $svg->group(
 			     id => $id,
-			     style => {'stroke-width'=> '7', 'stroke'=> '#0080ff', 'fill'=> 'white', 'background' => 'black'}
+			     style => {'stroke-width'=> '6', 'stroke'=> '#0080ff', 'fill'=> 'none', 'background' => 'black'}
 			    );
     $circle->circle(
 		    cx =>$x,
 		    cy=>$y,
 		    r=>${circle_size}
 		   );
+
+    return 1;
+  }elsif($type eq 'triangle'){
     
+    my @top_xy = (shift @_, shift @_);
+    my ($triangle_size, $id) = @_;
+    $top_xy[1] -= ($triangle_size/2);
+    my $height = ( ($triangle_size/2) * sqrt(3));
+    my @right_xy = ( ($top_xy[0] + ($triangle_size/2)), ($top_xy[1] + $height) );
+    my @left_xy  = ( ($top_xy[0] - ($triangle_size/2)), ($top_xy[1] + $height) );
+    
+    my $xv = [$top_xy[0], $right_xy[0], $left_xy[0]];
+    my $yv = [$top_xy[1], $right_xy[1], $left_xy[1]];
+
+   my $points = $svg->get_path(
+        x=>$xv, y=>$yv,
+        -type=>'polygon'
+    );
+
+    my $c = $svg->polygon(
+			  %$points,
+			  id=>$id,
+			  style=>{'stroke-width'=> '7', 'stroke'=> '#0080ff', 'fill'=> 'none', 'background'=> 'black'}
+		       );
+
+  }elsif($type eq 'text'){
+
+    my ($x, $y, $id,$cdata) = @_;
+
+    my $text1 = $svg->text(
+			   id=>$id,
+			   x=>$x,
+			   y=>$y,
+			   'font-family'=>'Myriad Pro Black',
+			   'font-weight'=>'bold',
+			   'font-size'=> '40'
+			  )->cdata($cdata);
     return 1;
   }
   
@@ -112,10 +215,15 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
 }
 
 
+
 print $svg->xmlify(
 		   -pubid => "-//W3C//DTD SVG 1.0//EN",
 		   -inline => 1
 		  );
+
+
+
+
 
 
 __END__
