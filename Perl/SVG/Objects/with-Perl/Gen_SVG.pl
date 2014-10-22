@@ -50,7 +50,7 @@ sub Level1_1{ ## most easy IQ question  # one type objects are listed
       &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2]);
 
       @change_xy = &number_offset($questions[$counter][1]);
-      my $right_x = $x + 35 + $change_xy[0];
+      my $right_x = $x + 36 + $change_xy[0];
       my $right_y = $y + 68 + $change_xy[1];
       &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1]);
 
