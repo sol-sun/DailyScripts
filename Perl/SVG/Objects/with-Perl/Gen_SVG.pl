@@ -15,7 +15,57 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-&Level1_1;
+#&Level2_1();
+&Level1_1();
+sub Level2_1{
+
+  $setoff_x = 150;
+  $setoff_y = 150;
+
+  my @questions = &IQ_Problem::Question1();
+
+  my @ids = (
+	     ["Cell_1-1", "Cell_1-2"],
+	     ["Cell_2-1", "Cell_2-2"],
+	    );
+
+  my $counter = 0;
+  for(my $i=0;$i<scalar(@ids);$i++){
+    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+      my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
+      my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+      &Objects('circle', $x, $y, "70", "$ids[$i][$j]"."_Circle");
+
+      my @change_xy = &number_offset($questions[$counter][3]);
+
+      my $top_x = $x - 30.5 + ($change_xy[0] * 1.7);
+      my $top_y = $y - 85 + ($change_xy[1] * 1.7);
+
+      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3]);
+
+      @change_xy = &number_offset($questions[$counter][2]);
+      my $left_x = $x - 110 + ($change_xy[0] * 1.7);
+      my $left_y = $y + 90 + ($change_xy[1] * 1.7);
+      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2]);
+
+      @change_xy = &number_offset($questions[$counter][1]);
+      my $right_x = $x + 50 + ($change_xy[0] * 1.7);
+      my $right_y = $y + 90 + ($change_xy[1] * 1.7);
+      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1]);
+
+      if($j != 1 || $i != 1){
+	my $center_x = $x - 30;
+	my $center_y = (($y + 68) - 50);
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0]);
+	
+      }
+      $counter++;
+
+    }
+
+  }
+  &Objects('question', 350, 350);
+}
 
 sub Level1_1{ ## most easy IQ question  # one type objects are listed
 
@@ -64,7 +114,6 @@ sub Level1_1{ ## most easy IQ question  # one type objects are listed
     }
   }
   &Objects('question', 400, 400);
-  
 
   ##
 }
@@ -195,6 +244,7 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
 			   y=>$y,
 			   'font-family'=>'Myriad Pro Black',
 			   'font-weight'=>'bold',
+#			   'font-size'=> '55'
 			   'font-size'=> '40'
 			  )->cdata($cdata);
     return 1;

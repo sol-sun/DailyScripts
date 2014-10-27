@@ -1,15 +1,17 @@
 #!/usr/bin/env perl
 
+package IQ_Problem;
+
 use strict;
 use warnings;
 use Data::Dumper;
 use Math::Random::MT qw(srand rand);
 use List::Util qw(shuffle);
 
-&Question1_num;
+#print Dumper &Question1;
 #srand(time() | $$);
 
-sub Question1_num{
+sub Question1{
 
   my @result_table;
   my @center_nums;
@@ -21,23 +23,20 @@ sub Question1_num{
 
   foreach my $center_num(@center_nums){
     my @array;
-    print $center_num,"\n";
-    
-    my $hoge = $center_num - int($center_num/5); # 10 is arbitrary number
-    print $hoge, "\n";
-    my $num_1 = list_util_shuffle($center_num/15, $hoge);
-    print $num_1, "\n";
-    
-    $hoge = $num_1 - int($center_num/5);
-    
-    push @array, $num_1;
-    
-    last;
-    push @result_table, \@array;
-  }
 
-#  print Dumper $center_nums[0];
-#  print Dumper @result_table;
+    my $hoge = $center_num - int($center_num/5); # 10 is arbitrary number
+
+    my $num_1 = list_util_shuffle($center_num/15, $hoge);
+
+    $hoge = ($center_num - $num_1) - int(($center_num - $num_1)/$center_num);
+
+    my $num_2 = list_util_shuffle(($center_num - $num_1)/15, $hoge);
+
+    my $num_3 = $center_num - ($num_1 + $num_2);
+
+
+    push @result_table, [$center_num, $num_1, $num_2, $num_3];
+  }
 
   return @result_table;
 }
@@ -46,3 +45,4 @@ sub list_util_shuffle{
   return shuffle (shift()..(shift()-1));
 }
 
+1;
