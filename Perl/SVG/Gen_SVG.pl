@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use SVG;
 use Data::Dumper;
-use lib '../../../Math';
+use lib '../Math';
 use Question1;
 
 my $sm_width = 600;
@@ -15,8 +15,8 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-#&Level2_1();
-&Level1_1();
+&Level2_1();
+#&Level1_1();
 sub Level2_1{
 
   $setoff_x = 150;
@@ -105,8 +105,8 @@ sub Level1_1{ ## most easy IQ question  # one type objects are listed
       &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1]);
 
       if($j != 2 || $i != 2){
-	my $center_x = $x - 22;
-	my $center_y = ($left_y - 50);
+	my $center_x = $x - 20;
+	my $center_y = ($left_y - 53);
 	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0]);
 	
       }
@@ -118,11 +118,8 @@ sub Level1_1{ ## most easy IQ question  # one type objects are listed
   ##
 }
 
-sub Level1_2{ ## numerical question
 
-}
-
-sub number_offset{
+sub number_offset{ 
 
   if(length(shift()) == 1){
     return (9,0);
@@ -244,8 +241,8 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
 			   y=>$y,
 			   'font-family'=>'Myriad Pro Black',
 			   'font-weight'=>'bold',
-#			   'font-size'=> '55'
-			   'font-size'=> '40'
+			   'font-size'=> '55'
+#			   'font-size'=> '40'
 			  )->cdata($cdata);
     return 1;
   }

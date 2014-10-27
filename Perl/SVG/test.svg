@@ -1,44 +1,63 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="&#x30EC;&#x30A4;&#x30E4;&#x30FC;_1" xmlns:svg="http://www.w3.org/2000/svg"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 600 600"
-	 style="enable-background:new 0 0 600 600;" xml:space="preserve">
-<g id="group_y">
-	<circle id="Cell_1-1" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="100" cy="100" r="54.621"/>
-	<circle id="Cell_1-2" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="300" cy="100" r="54.621"/>
-	<circle id="Cell_1-3" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="500" cy="100" r="54.621"/>
-	<circle id="Cell_2-1" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="100" cy="300" r="54.621"/>
-	<circle id="Cell_2-2" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="300" cy="300" r="54.621"/>
-	<circle id="Cell_2-3" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="500" cy="300" r="54.621"/>
-	<circle id="Cell_3-1" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="100" cy="500" r="54.621"/>
-	<circle id="Cell_3-2" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="300" cy="500" r="54.621"/>
-	<circle id="Cell_3-3" style="fill:#FFFFFF;stroke:#0080FF;stroke-width:7;" cx="500" cy="500" r="54.621"/>
-</g>
 
-	<g id="g3648" transform="translate(-6,-96)">
-		<g id="text2816">
-			<path id="path2821" style="stroke:#000000;stroke-width:2;stroke-linecap:round;" d="M57.189,162.974
-				c0-5.422,1.74-10.917,5.222-16.483c3.482-5.565,8.563-10.176,15.241-13.828c6.678-3.653,14.471-5.479,23.375-5.479
-				c8.276,0,15.584,1.527,21.919,4.581c6.335,3.054,11.231,7.207,14.684,12.457c3.453,5.252,5.181,10.96,5.181,17.125
-				c0,4.851-0.985,9.105-2.955,12.757c-1.97,3.654-4.31,6.807-7.021,9.462c-2.711,2.654-7.578,7.121-14.599,13.401
-				c-1.94,1.77-3.497,3.325-4.666,4.667c-1.171,1.341-2.04,2.568-2.611,3.682c-0.571,1.113-1.013,2.227-1.327,3.339
-				c-0.314,1.113-0.785,3.068-1.413,5.866c-1.084,5.936-4.481,8.905-10.19,8.905c-2.968,0-5.465-0.971-7.492-2.911
-				c-2.027-1.94-3.04-4.824-3.04-8.648c0-4.795,0.742-8.947,2.227-12.457c1.484-3.51,3.453-6.593,5.909-9.247
-				c2.454-2.655,5.765-5.809,9.933-9.462c3.653-3.197,6.293-5.608,7.919-7.235c1.627-1.627,2.998-3.439,4.111-5.438
-				c1.113-1.998,1.67-4.167,1.67-6.508c0-4.567-1.698-8.42-5.095-11.559c-3.397-3.14-7.776-4.709-13.144-4.71
-				c-6.28,0-10.904,1.584-13.872,4.752s-5.479,7.836-7.535,14c-1.94,6.45-5.623,9.676-11.046,9.676
-				c-3.197,0-5.894-1.128-8.092-3.382C58.289,168.04,57.189,165.6,57.189,162.974z M98.973,256.817
-				c-3.482,0-6.522-1.128-9.119-3.382c-2.597-2.254-3.896-5.409-3.896-9.462c0-3.597,1.256-6.622,3.767-9.076
-				c2.511-2.454,5.595-3.682,9.247-3.682c3.595,0,6.621,1.228,9.076,3.682c2.454,2.454,3.682,5.479,3.682,9.076
-				c0,3.996-1.284,7.135-3.853,9.419C105.31,255.676,102.341,256.817,98.973,256.817L98.973,256.817z"/>
-		</g>
-		<path id="path3634" style="stroke:#000000;stroke-width:2;stroke-linecap:round;" d="M59.651,161.375
-			c-0.41-0.318,2.382-14.15,12.582-21.971c7.822-5.998,13.033-7.307,17.914-8.531c3.757-0.941,9.878-1.327,14.503-0.853
-			c0,0-10.223,3.793-14.551,5.376c-4.467,1.633-11.607,4.118-15.854,7.786C69.997,146.85,59.651,161.375,59.651,161.375z"/>
-		<path id="path3636" style="stroke:#000000;stroke-width:2;stroke-linecap:round;" d="M90.285,250.319
-			c0,0-5.346-9.518,2.841-14.694c7.603-4.808,12.987,1.109,12.987,1.109S98.923,237.765,96,239.84
-			C92.373,242.414,90.285,250.319,90.285,250.319L90.285,250.319z"/>
+<svg height="600" width="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Cell_1-1_Circle" style="stroke-width: 6; background: black; fill: none; stroke: #0080ff">
+		<circle cx="150" cy="150" r="70" />
 	</g>
-
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_1-1top_Text" x="119.5" y="65">36</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_1-1left_Text" x="40" y="240">40</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_1-1right_Text" x="200" y="240">15</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_1-1center_Text" x="120" y="168">91</text>
+	<g id="Cell_1-2_Circle" style="fill: none; stroke: #0080ff; stroke-width: 6; background: black">
+		<circle cx="450" cy="150" r="70" />
+	</g>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_1-2top_Text" x="419.5" y="65">19</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_1-2left_Text" x="355.3" y="240">7</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_1-2right_Text" x="500" y="240">27</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_1-2center_Text" x="420" y="168">53</text>
+	<g id="Cell_2-1_Circle" style="stroke-width: 6; background: black; fill: none; stroke: #0080ff">
+		<circle cx="150" cy="450" r="70" />
+	</g>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_2-1top_Text" x="119.5" y="365">20</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_2-1left_Text" x="55.3" y="540">1</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_2-1right_Text" x="200" y="540">58</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_2-1center_Text" x="120" y="468">79</text>
+	<g id="Cell_2-2_Circle" style="stroke: #0080ff; fill: none; background: black; stroke-width: 6">
+		<circle cx="450" cy="450" r="70" />
+	</g>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_2-2top_Text" x="419.5" y="365">12</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_2-2left_Text" x="340" y="540">35</text>
+	<text font-family="Myriad Pro Black" font-size="55" font-weight="bold" id="Cell_2-2right_Text" x="500" y="540">37</text>
+	<g id="Question_Mark" transform="translate(397,353),scale(0.5)">
+		<path d="
+M64.028,167.543
+c0-5.316,1.706-10.703,5.12-16.16c3.414-5.456,8.395-9.976,14.942-13.557c6.547-3.581,14.187-5.372,22.917-5.372
+c8.114,0,15.278,1.497,21.489,4.491s11.011,7.066,14.396,12.213c3.385,5.149,5.079,10.745,5.079,16.789
+c0,4.756-0.966,8.926-2.897,12.507c-1.931,3.582-4.225,6.674-6.883,9.276c-2.658,2.602-7.429,6.981-14.313,13.138
+c-1.902,1.735-3.428,3.26-4.575,4.575c-1.148,1.315-2,2.518-2.56,3.61c-0.56,1.091-0.993,2.183-1.301,3.274
+c-0.308,1.091-0.77,3.008-1.385,5.751c-1.063,5.82-4.393,8.73-9.99,8.73c-2.91,0-5.358-0.952-7.345-2.854
+c-1.987-1.902-2.98-4.729-2.98-8.478c0-4.701,0.727-8.772,2.183-12.213c1.455-3.441,3.385-6.464,5.793-9.066
+c2.406-2.603,5.652-5.695,9.738-9.276c3.581-3.134,6.17-5.498,7.764-7.093c1.595-1.595,2.939-3.372,4.03-5.331
+c1.091-1.959,1.637-4.085,1.637-6.38c0-4.477-1.665-8.255-4.995-11.332c-3.33-3.078-7.624-4.617-12.886-4.618
+c-6.157,0-10.69,1.553-13.6,4.659s-5.372,7.682-7.387,13.725c-1.902,6.324-5.513,9.486-10.829,9.486
+c-3.134,0-5.778-1.106-7.933-3.316C65.106,172.51,64.028,170.118,64.028,167.543z M104.993,259.546
+c-3.414,0-6.394-1.106-8.94-3.316c-2.546-2.21-3.82-5.303-3.82-9.276c0-3.526,1.231-6.492,3.693-8.898s5.485-3.61,9.066-3.61
+c3.525,0,6.491,1.204,8.898,3.61c2.406,2.406,3.61,5.372,3.61,8.898c0,3.918-1.259,6.995-3.777,9.234
+C111.205,258.427,108.295,259.546,104.993,259.546L104.993,259.546z
+" style="stroke-linecap: round; stroke: #000000; stroke-width: 2" />
+		<path d="
+M66.442,165.975
+c-0.402-0.312,2.335-13.873,12.335-21.54c7.669-5.88,12.777-7.164,17.563-8.364c3.683-0.923,9.684-1.301,14.219-0.836
+c0,0-10.023,3.719-14.266,5.271c-4.379,1.601-11.379,4.037-15.543,7.633C76.585,151.735,66.442,165.975,66.442,165.975z
+" style="stroke-width: 2; stroke-linecap: round; stroke: #000000" />
+		<path d="
+M96.475,253.175
+c0,0-5.241-9.331,2.785-14.406c7.454-4.714,12.732,1.087,12.732,1.087s-7.048,1.012-9.914,3.046
+C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
+" style="stroke: #000000; stroke-linecap: round; stroke-width: 2" />
+	</g>
+	<!-- 
+	Generated using the Perl SVG Module V2.59
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
 </svg>
