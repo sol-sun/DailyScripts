@@ -375,7 +375,9 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
 
     my @top_xy = (shift @_, shift @_);
     my ($square_size, $id, $stroke_color) = @_;
+    # ( $square + $y ) should be center_xy of object;
     $top_xy[1] -= ($square_size/2);
+    #
     my $height = ( ($square_size/2) * sqrt(3));
     my @right_xy = ( ($top_xy[0] + ($square_size/2)), ($top_xy[1] + $height) );
     my @left_xy  = ( ($top_xy[0] - ($square_size/2)), ($top_xy[1] + $height) );
