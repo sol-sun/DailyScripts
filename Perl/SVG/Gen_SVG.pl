@@ -15,7 +15,7 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-&Level1_3();
+&Level2_1();
 
 sub Level1_1{
 
@@ -169,6 +169,38 @@ sub Level1_3{
   &Objects('question', 350, 350);
 }
 
+sub Level2_1{
+  my @ids = (
+	     ["Cell_1-1", "Cell_1-2", "Cell_1-3"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3"]
+	    );
+  my $counter = 0;
+  for(my $i=0;$i<scalar(@ids);$i++){
+    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+      my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
+      my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+
+      if($j == 0 && $i == 0 ){
+	&Objects('triangle', $x, $y, 90, $ids[$i][$j], 'black');
+      }elsif($j == 0 && $i == 1){
+	&Objects('circle', $x, $y, "50", "$ids[$i][$j]"."_Circle", "black");
+      }elsif($j == 0 && $i == 2){
+	&Objects('square', $x, $y, 85, $ids[$i][$j], 'black');
+      }elsif($j == 2 && $i == 2){
+	&Objects('question', 400, 400);
+      }
+
+      
+      if($j == 1 && $i == 0){
+	
+      }
+
+    }
+  }
+  
+}
+
 
 =pod
 sub Level1_1{ ## most easy IQ question  # one type objects are listed
@@ -315,7 +347,7 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
   }elsif($type eq 'triangle'){
     
     my @top_xy = (shift @_, shift @_);
-    my ($triangle_size, $id) = @_;
+    my ($triangle_size, $id, $stroke_color) = @_;
     $top_xy[1] -= ($triangle_size/2);
     my $height = ( ($triangle_size/2) * sqrt(3));
     my @right_xy = ( ($top_xy[0] + ($triangle_size/2)), ($top_xy[1] + $height) );
@@ -332,9 +364,38 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
     my $c = $svg->polygon(
 			  %$points,
 			  id=>$id,
-			  style=>{'stroke-width'=> '7', 'stroke'=> '#0080ff', 'fill'=> 'none', 'background'=> 'black'}
+			  style=>{'stroke-width'=> '7', 'stroke'=> $stroke_color, 'fill'=> 'none', 'background'=> 'black'}
 		       );
 
+  }elsif($type eq 'line'){
+    
+    
+    
+  }elsif($type eq 'square'){
+
+    my @top_xy = (shift @_, shift @_);
+    my ($square_size, $id, $stroke_color) = @_;
+    $top_xy[1] -= ($square_size/2);
+    my $height = ( ($square_size/2) * sqrt(3));
+    my @right_xy = ( ($top_xy[0] + ($square_size/2)), ($top_xy[1] + $height) );
+    my @left_xy  = ( ($top_xy[0] - ($square_size/2)), ($top_xy[1] + $height) );
+    
+    my $xv = [$left_xy[0], $right_xy[0], $right_xy[0], $left_xy[0]];
+    my $yv = [$top_xy[1], $top_xy[1], $right_xy[1], $left_xy[1]];
+
+   my $points = $svg->get_path(
+        x=>$xv, y=>$yv,
+        -type=>'polygon'
+    );
+
+    my $c = $svg->polygon(
+			  %$points,
+			  id=>$id,
+			  style=>{'stroke-width'=> '7', 'stroke'=> $stroke_color, 'fill'=> 'none', 'background'=> 'black'}
+		       );
+
+    
+    
   }elsif($type eq 'text'){
 
     my ($x, $y, $id,$cdata) = @_;
