@@ -6,7 +6,13 @@ use Data::Dumper;
 use Storable;
 use File::Basename;
 
-my (@weather_list, $success_flag);
+
+# You can edit this variable if you want to change the weather-icon-path.
+my $WEATHER_ICON_PATH = '/tmp/weather.png';
+my $WEATHER_ICON_COLOR = 'White'; #or 'Black'
+#.
+
+my (%weather_list, $cdir);
 
 my $sh_script = q(curl --silent "http://xml.weather.yahoo.com/forecastrss?p=JAXX0085&u=c" | grep -E '(Current Conditions:|C<BR)' | sed -e 's/Current Conditions://' -e 's/<br \/>$//' -e 's/<b>//' -e 's/<\/b>//' -e 's/<BR \/>//' -e 's/<description>//' -e 's/<\/description>//');
 
@@ -25,17 +31,19 @@ if(trim($curl) =~ m/([^,]+),(.+)/i){
   $Today_temperature = trim($2);
 }
 
-for my $weather (@weather_list){
-  if( $weather eq $Today_weather ){
-    $success_flag = 1;
-  }
-}
 
+if( exists($weather_list{"$Today_weather"}) ){
 
-if($success_flag == 1){
   print "$Today_weather, $Today_temperature";
+
+  my $ICON_PATH = $cdir . '/Weather_ICON/' . $WEATHER_ICON_COLOR .'/png/' . $weather_list{"$Today_weather"} . '.png';
+  
+  `cp $ICON_PATH  $WEATHER_ICON_PATH`;
+  
 }else{
-  die "Weather not founded";
+  
+  die "$Today_weather not founded in \%weather_list:Please Mail to me ";
+  
 }
 
 ##################
@@ -53,13 +61,13 @@ sub trim {
 
 BEGIN{
   #  data pass ("$0" or "__FILE__" are this file name)
-  my $cdir = dirname($0);
+  $cdir = dirname($0);
   my $ndata = "$cdir".'/.Weather_List';
   #.
   
   ## Load Weather list
   eval{
-    @weather_list = @{retrieve($ndata)};
+    %weather_list = %{retrieve($ndata)};
   };
   
   if($@){
