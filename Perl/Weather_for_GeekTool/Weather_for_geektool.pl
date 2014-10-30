@@ -36,7 +36,7 @@ if( exists($weather_list{"$Today_weather"}) ){
 
   print "$Today_weather, $Today_temperature";
 
-  my $ICON_PATH = $cdir . '/Weather_ICON/' . $WEATHER_ICON_COLOR .'/png/' . $weather_list{"$Today_weather"} . '.png';
+  my $ICON_PATH = $cdir . '/Data/Weather_ICON/' . $WEATHER_ICON_COLOR .'/png/' . $weather_list{"$Today_weather"} . '.png';
   
   `cp $ICON_PATH  $WEATHER_ICON_PATH`;
   
@@ -62,14 +62,13 @@ sub trim {
 BEGIN{
   #  data pass ("$0" or "__FILE__" are this file name)
   $cdir = dirname($0);
-  my $ndata = "$cdir".'/.Weather_List';
+  my $ndata = "$cdir".'/Data/MkBase/.Weather_List';
   #.
   
   ## Load Weather list
   eval{
     %weather_list = %{retrieve($ndata)};
   };
-  
   if($@){
     die "[error]$@";
   }
