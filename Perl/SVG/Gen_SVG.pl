@@ -169,7 +169,7 @@ sub Level1_3{
   &Objects('question', 350, 350);
 }
 
-sub Level2_1{
+sub Level2_1{ ## under development
   my @ids = (
 	     ["Cell_1-1", "Cell_1-2", "Cell_1-3"],
 	     ["Cell_2-1", "Cell_2-2", "Cell_2-3"],
@@ -181,19 +181,36 @@ sub Level2_1{
       my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
       my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
 
+      ## [0][i] rows
       if($j == 0 && $i == 0 ){
-	&Objects('triangle', $x, $y, 90, $ids[$i][$j], 'black');
+	&Objects('triangle', $x, $y, 90, "$ids[$i][$j]_Triangle", 'blue');
       }elsif($j == 0 && $i == 1){
-	&Objects('circle', $x, $y, "50", "$ids[$i][$j]"."_Circle", "black");
+	&Objects('circle', $x, $y, "50", "$ids[$i][$j]"."_Circle", 'green');
       }elsif($j == 0 && $i == 2){
-	&Objects('square', $x, $y, 85, $ids[$i][$j], 'black');
-      }elsif($j == 2 && $i == 2){
-	&Objects('question', 400, 400);
+	&Objects('square', $x, $y, 85, "$ids[$i][$j]"."_Square", 'orange');
       }
 
-      
+      ## [1][i] rows
       if($j == 1 && $i == 0){
+	&Objects('line', $x, $y-50, $x, $y+50, "$ids[$i][$j]"."_Line", 'black');
+      }elsif($j == 1 && $i == 1){
+	&Objects('line', $x, $y-50, $x, $y+50, "$ids[$i][$j]"."-1"."_Line", 'black');
+	&Objects('line', $x-50, $y, $x+50, $y, "$ids[$i][$j]"."-2"."_Line", 'black');
+      }elsif($j == 1 && $i == 2){
+	&Objects('line', $x-50, $y, $x+50, $y, "$ids[$i][$j]"."_Line", 'black');
+      }
+
+      ## [2][i] rows
+	my $object_x =  $setoff_x;
+	my $object_y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+
+      if($j == 2 && $i == 2){
+	&Objects('question', 400, 400);
+      }elsif($j == 2 && $i == 0){
 	
+	&Objects('scale',"$ids[$i][0]"."_Triangle", $x, $object_x, $y, $object_y, '1', '1.5', "$ids[$i][$j]"."_scale", 'blue');
+      }elsif($j == 2 && $i == 1){
+	&Objects('scale', "$ids[$i][0]"."_Circle",$x, $object_x, $y, $object_y, '1.5', '1.5', "$ids[$i][$j]"."_scale", 'green');
       }
 
     }
@@ -367,10 +384,54 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
 			  style=>{'stroke-width'=> '7', 'stroke'=> $stroke_color, 'fill'=> 'none', 'background'=> 'black'}
 		       );
 
+  }elsif($type eq 'polygon'){
+
+    #いまのところいらないかも
+    my @xy = @_;
+
+    if( (scalar(@xy)/2) == 3 ){ ##This is triangle
+      my @top_xy = (shift @_, shift @_);
+      my @bottom1_xy = (shift @_, shift @_);
+      my @bottom2_xy = (shift @_, shift @_);
+      my ($id, $stroke_color) = @_;
+      my $xv = [$top_xy[0], $bottom1_xy[0], $bottom2_xy[0]];
+      my $yv = [$top_xy[1], $bottom1_xy[1], $bottom2_xy[1]];
+      
+      my $points = $svg->get_path(
+				  x=> $xv, y=>$yv,
+				  -type=>'polygon'
+				 );
+      my $c = $svg->polygon(
+			    %$points,
+			    id=>$id,
+			    style=>{'stroke-width'=> '7', 'stroke'=> $stroke_color, 'fill'=> 'none', 'background' => 'black'}
+			   );
+    }
+    ##.
+      
+  }elsif($type eq 'scale'){
+    ##translate(x, y), rotate(a), translate(-x,-y) => offset in x,y
+    ##translate(x, y), scale(a), translate(-x,-y) => offset in x,y
+    ##
+
+    my ($href, $x, $object_x, $y, $object_y, $scale_x, $scale_y, $id, $stroke_color) = @_;
+
+    my $c = $svg->use(x=>$x-$object_x, y=>$y-$object_y, '-href'=>"#$href",transform=>"translate($x, $y), scale($scale_x,$scale_y), translate(-$x, -$y)");
+    
+
   }elsif($type eq 'line'){
+
+    my @xy1 = (shift @_, shift @_);
+    my @xy2 = (shift @_, shift @_);
+    my  ($id, $stroke_color) = @_;
     
-    
-    
+    my $c = $svg->line(
+		       id=> $id,
+		       x1=>$xy1[0], y1=>$xy1[1],
+		       x2=>$xy2[0], y2=>$xy2[1],
+		       style=>{'stroke-width'=>'7', 'stroke'=> $stroke_color}
+		      );
+
   }elsif($type eq 'square'){
 
     my @top_xy = (shift @_, shift @_);
