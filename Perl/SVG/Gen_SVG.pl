@@ -269,8 +269,8 @@ sub Level2_2($){ ## under development
 
 
 sub Level3_1{
-  $setoff_x = 75;
-  $setoff_y = 75;
+  $setoff_x = 71;
+  $setoff_y = 63;
   my $table_color = "skyblue";
   &Objects( 'square', 305, 318, 590, 'Table', $table_color );
 
@@ -308,41 +308,35 @@ sub Level3_1{
       my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
 
       ## [0][i] rows
-      if($j == 0 && $i == 0){
-	&Objects('triangle', $x, $y, 110, "$ids[$i][$j]", 'black');
+#      if($j == 0 && $i == 0){
+	my @change_xy = &number_offset(30);
+	my $center_x = $x - 18 + ($change_xy[0] * 1.7);
+	my $center_y = (($y + 80) - 33) + ($change_xy[1] * 1.7);
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30");
+	#	&Objects('triangle', $x, $y, 60, "$ids[$i][$j]", 'black');
+=pod	
       }elsif($j == 0 && $i == 1){
-	&Objects('square', $x, $y, 80, "$ids[$i][$j]", 'black');
+
+	my @change_xy = &number_offset(30);
+	my $center_x = $x - 30 + ($change_xy[0] * 1.7);
+	my $center_y = (($y + 68) - 50) + ($change_xy[1] * 1.7);
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30");
+
       }elsif($j == 0 && $i == 2){
-	&Objects('square', $x, $y, 85, "$ids[$i][$j]", 'black');
+
+	my @change_xy = &number_offset(30);
+	my $center_x = $x - 30 + ($change_xy[0] * 1.7);
+	my $center_y = (($y + 68) - 50) + ($change_xy[1] * 1.7);
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30");
+
       }
       ##.
 
       my $object_x1 = (($setoff_x * 2) * 0) + $setoff_y;
       my $object_x2 = (($setoff_x * 2) * 1) + $setoff_y;
       my $object_y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+=cut
 
-      ## [1][i] rows
-      if($j == 1 && $i == 0){
-	&Objects('circle', $x, $y, 30, "$ids[$i][$j]", 'black');
-      }elsif($j == 1 && $i == 1){
-	&Objects('rotate',"$ids[$i][0]", $x, $object_x1, $y, $object_y,'35', "$ids[$i][$j]");
-      }elsif($j == 1 && $i == 2){
-	&Objects('square', $x, $y, 35, "$ids[$i][$j]", 'black');
-      }
-      ##.
-
-      ## [2][i] rows
-      if($j == 2 && $i == 0){
-	&Objects('scale', "$ids[$i][0]", $x, $object_x1, $y, $object_y, '1', '1');
-	&Objects('scale', "$ids[$i][1]", $x, $object_x2, $y, $object_y, '1', '1');
-      }elsif($j == 2 && $i == 1){
-	&Objects('scale', "$ids[$i][0]", $x, $object_x1, $y, $object_y, '1', '1');
-	&Objects('scale', "$ids[$i][1]", $x, $object_x2, $y, $object_y, '1', '1');
-	#Objects('triangle', $x, $y, 150, "$ids[$i][$j]"."_Circle", 'skyblue');
-      }elsif($j == 2 && $i == 2){
-	&Objects('question', 400, 400);
-      }
-      ##.
     }
   }
   
