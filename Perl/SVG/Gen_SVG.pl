@@ -15,9 +15,9 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-&Level2_1();
+&Level3_1();
 
-sub Level1_1{
+sub Level1_1($){
 
   $setoff_x = 150;
   $setoff_y = 150;
@@ -67,7 +67,7 @@ sub Level1_1{
   &Objects('question', 350, 350);
 }
 
-sub Level1_2{
+sub Level1_2($){
 
   $setoff_x = 150;
   $setoff_y = 150;
@@ -118,7 +118,7 @@ sub Level1_2{
 }
 
 
-sub Level1_3{
+sub Level1_3($){
 
   $setoff_x = 150;
   $setoff_y = 150;
@@ -169,7 +169,7 @@ sub Level1_3{
   &Objects('question', 350, 350);
 }
 
-sub Level2_1{ ## under development
+sub Level2_1($){ ## under development
   my @ids = (
 	     ["Cell_1-1", "Cell_1-2", "Cell_1-3"],
 	     ["Cell_2-1", "Cell_2-2", "Cell_2-3"],
@@ -183,40 +183,173 @@ sub Level2_1{ ## under development
 
       ## [0][i] rows
       if($j == 0 && $i == 0 ){
-	&Objects('triangle', $x, $y, 90, "$ids[$i][$j]_Triangle", 'blue');
+	&Objects('triangle', $x, $y, 90, "$ids[$i][$j]"."_Triangle", 'black');
       }elsif($j == 0 && $i == 1){
-	&Objects('circle', $x, $y, "50", "$ids[$i][$j]"."_Circle", 'green');
+	&Objects('circle', $x, $y, "50", "$ids[$i][$j]"."_Circle", 'black');
       }elsif($j == 0 && $i == 2){
-	&Objects('square', $x, $y, 85, "$ids[$i][$j]"."_Square", 'orange');
+	&Objects('square', $x, $y, 85, "$ids[$i][$j]"."_Square", 'black');
       }
 
       ## [1][i] rows
       if($j == 1 && $i == 0){
-	&Objects('line', $x, $y-50, $x, $y+50, "$ids[$i][$j]"."_Line", 'black');
+	&Objects('line', $x, $y-50, $x, $y+50, "$ids[$i][$j]"."_Line", 'blue');
       }elsif($j == 1 && $i == 1){
-	&Objects('line', $x, $y-50, $x, $y+50, "$ids[$i][$j]"."-1"."_Line", 'black');
-	&Objects('line', $x-50, $y, $x+50, $y, "$ids[$i][$j]"."-2"."_Line", 'black');
+	&Objects('line', $x, $y-50, $x, $y+50, "$ids[$i][$j]"."-1"."_Line", 'green');
+	&Objects('line', $x-50, $y, $x+50, $y, "$ids[$i][$j]"."-2"."_Line", 'green');
       }elsif($j == 1 && $i == 2){
-	&Objects('line', $x-50, $y, $x+50, $y, "$ids[$i][$j]"."_Line", 'black');
+	&Objects('line', $x-50, $y, $x+50, $y, "$ids[$i][$j]"."_Line", 'orange');
       }
 
       ## [2][i] rows
 	my $object_x =  $setoff_x;
 	my $object_y = ( ($setoff_y * 2) * $i ) + $setoff_y;
 
-      if($j == 2 && $i == 2){
-	&Objects('question', 400, 400);
-      }elsif($j == 2 && $i == 0){
+      if($j == 2 && $i == 0){
 	
-	&Objects('scale',"$ids[$i][0]"."_Triangle", $x, $object_x, $y, $object_y, '1', '1.5', "$ids[$i][$j]"."_scale", 'blue');
+	&Objects('scale',"$ids[$i][0]"."_Triangle", $x, $object_x, $y, $object_y, '1', '1.5');
       }elsif($j == 2 && $i == 1){
-	&Objects('scale', "$ids[$i][0]"."_Circle",$x, $object_x, $y, $object_y, '1.5', '1.5', "$ids[$i][$j]"."_scale", 'green');
+	&Objects('scale', "$ids[$i][0]"."_Circle",$x, $object_x, $y, $object_y, '1.5', '1.5');
+      }elsif($j == 2 && $i == 2){
+	&Objects('question', 400, 400);
       }
-
     }
   }
   
 }
+
+sub Level2_2($){ ## under development
+  my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3"]);
+
+  for(my $i=0;$i<scalar(@ids);$i++){
+    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+      my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
+      my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+
+      ## [0][i] rows
+      if($j == 0 && $i == 0){
+	&Objects('triangle', $x, $y, 110, "$ids[$i][$j]", 'black');
+      }elsif($j == 0 && $i == 1){
+	&Objects('square', $x, $y, 80, "$ids[$i][$j]", 'black');
+      }elsif($j == 0 && $i == 2){
+	&Objects('square', $x, $y, 85, "$ids[$i][$j]", 'black');
+      }
+      ##.
+
+      my $object_x1 = (($setoff_x * 2) * 0) + $setoff_y;
+      my $object_x2 = (($setoff_x * 2) * 1) + $setoff_y;
+      my $object_y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+
+      ## [1][i] rows
+      if($j == 1 && $i == 0){
+	&Objects('circle', $x, $y, 30, "$ids[$i][$j]", 'black');
+      }elsif($j == 1 && $i == 1){
+	&Objects('rotate',"$ids[$i][0]", $x, $object_x1, $y, $object_y,'35', "$ids[$i][$j]");
+      }elsif($j == 1 && $i == 2){
+	&Objects('square', $x, $y, 35, "$ids[$i][$j]", 'black');
+      }
+      ##.
+
+      ## [2][i] rows
+      if($j == 2 && $i == 0){
+	&Objects('scale', "$ids[$i][0]", $x, $object_x1, $y, $object_y, '1', '1');
+	&Objects('scale', "$ids[$i][1]", $x, $object_x2, $y, $object_y, '1', '1');
+      }elsif($j == 2 && $i == 1){
+	&Objects('scale', "$ids[$i][0]", $x, $object_x1, $y, $object_y, '1', '1');
+	&Objects('scale', "$ids[$i][1]", $x, $object_x2, $y, $object_y, '1', '1');
+	#Objects('triangle', $x, $y, 150, "$ids[$i][$j]"."_Circle", 'skyblue');
+      }elsif($j == 2 && $i == 2){
+	&Objects('question', 400, 400);
+      }
+      ##.
+    }
+  }
+}
+
+
+sub Level3_1{
+  $setoff_x = 75;
+  $setoff_y = 75;
+  my $table_color = "skyblue";
+  &Objects( 'square', 305, 318, 590, 'Table', $table_color );
+
+  &Objects( 'square', 91, 100, 130, '1-1', $table_color );
+  &Objects( 'square', 233, 100, 130 , '1-2', $table_color );
+  &Objects( 'square', 375, 100, 130, '1-3', $table_color );
+  &Objects( 'square', 516, 100, 130, '1-4', $table_color );
+
+  &Objects( 'square', 91, 225, 132, '2-1', $table_color );
+  &Objects( 'square', 233, 225, 132 , '2-2', $table_color );
+  &Objects( 'square', 375, 225, 132, '2-3', $table_color );
+  &Objects( 'square', 516, 225, 132, '2-4', $table_color );
+
+  &Objects( 'square', 91, 350, 132, '3-1', $table_color );
+  &Objects( 'square', 233, 350, 132 , '3-2', $table_color);
+  &Objects( 'square', 375, 350, 132, '3-3', $table_color );
+  &Objects( 'square', 516, 350, 132, '3-4', $table_color );
+
+  &Objects( 'square', 91, 475, 132, '4-1', $table_color );
+  &Objects( 'square', 233, 475, 132, '4-2', $table_color );
+  &Objects( 'square', 375, 475, 132, '4-3', $table_color );
+  &Objects( 'square', 516, 475, 132, '4-4', $table_color );
+
+
+  #  &objects( 'square', );
+  my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3", "Cell_2-4"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
+	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
+	    );
+
+  for(my $i=0;$i<scalar(@ids);$i++){
+    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+      my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
+      my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+
+      ## [0][i] rows
+      if($j == 0 && $i == 0){
+	&Objects('triangle', $x, $y, 110, "$ids[$i][$j]", 'black');
+      }elsif($j == 0 && $i == 1){
+	&Objects('square', $x, $y, 80, "$ids[$i][$j]", 'black');
+      }elsif($j == 0 && $i == 2){
+	&Objects('square', $x, $y, 85, "$ids[$i][$j]", 'black');
+      }
+      ##.
+
+      my $object_x1 = (($setoff_x * 2) * 0) + $setoff_y;
+      my $object_x2 = (($setoff_x * 2) * 1) + $setoff_y;
+      my $object_y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+
+      ## [1][i] rows
+      if($j == 1 && $i == 0){
+	&Objects('circle', $x, $y, 30, "$ids[$i][$j]", 'black');
+      }elsif($j == 1 && $i == 1){
+	&Objects('rotate',"$ids[$i][0]", $x, $object_x1, $y, $object_y,'35', "$ids[$i][$j]");
+      }elsif($j == 1 && $i == 2){
+	&Objects('square', $x, $y, 35, "$ids[$i][$j]", 'black');
+      }
+      ##.
+
+      ## [2][i] rows
+      if($j == 2 && $i == 0){
+	&Objects('scale', "$ids[$i][0]", $x, $object_x1, $y, $object_y, '1', '1');
+	&Objects('scale', "$ids[$i][1]", $x, $object_x2, $y, $object_y, '1', '1');
+      }elsif($j == 2 && $i == 1){
+	&Objects('scale', "$ids[$i][0]", $x, $object_x1, $y, $object_y, '1', '1');
+	&Objects('scale', "$ids[$i][1]", $x, $object_x2, $y, $object_y, '1', '1');
+	#Objects('triangle', $x, $y, 150, "$ids[$i][$j]"."_Circle", 'skyblue');
+      }elsif($j == 2 && $i == 2){
+	&Objects('question', 400, 400);
+      }
+      ##.
+    }
+  }
+  
+}
+
+
+
 
 
 =pod
@@ -408,23 +541,28 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
 			   );
     }
     ##.
-      
+
   }elsif($type eq 'scale'){
     ##translate(x, y), rotate(a), translate(-x,-y) => offset in x,y
     ##translate(x, y), scale(a), translate(-x,-y) => offset in x,y
     ##
 
-    my ($href, $x, $object_x, $y, $object_y, $scale_x, $scale_y, $id, $stroke_color) = @_;
+    my ($href, $x, $object_x, $y, $object_y, $scale_x, $scale_y) = @_;
 
     my $c = $svg->use(x=>$x-$object_x, y=>$y-$object_y, '-href'=>"#$href",transform=>"translate($x, $y), scale($scale_x,$scale_y), translate(-$x, -$y)");
-    
+
+  }elsif($type eq 'rotate'){
+
+    my ($href, $x, $object_x, $y, $object_y, $rotate, $id) = @_;
+
+    my $c = $svg->use(x=>$x-$object_x, y=>$y-$object_y, '-href'=>"#$href",transform=>"translate($x, $y), rotate($rotate), translate(-$x, -$y)", id=> $id );
 
   }elsif($type eq 'line'){
 
     my @xy1 = (shift @_, shift @_);
     my @xy2 = (shift @_, shift @_);
     my  ($id, $stroke_color) = @_;
-    
+
     my $c = $svg->line(
 		       id=> $id,
 		       x1=>$xy1[0], y1=>$xy1[1],
@@ -439,10 +577,10 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
     # ( $square + $y ) should be center_xy of object;
     $top_xy[1] -= ($square_size/2);
     #
-    my $height = ( ($square_size/2) * sqrt(3));
+    my $height = ($square_size/2) * sqrt(3);#( ($square_size/2) * sqrt(3));#=> 正方形じゃなくなっている。
     my @right_xy = ( ($top_xy[0] + ($square_size/2)), ($top_xy[1] + $height) );
     my @left_xy  = ( ($top_xy[0] - ($square_size/2)), ($top_xy[1] + $height) );
-    
+
     my $xv = [$left_xy[0], $right_xy[0], $right_xy[0], $left_xy[0]];
     my $yv = [$top_xy[1], $top_xy[1], $right_xy[1], $left_xy[1]];
 
