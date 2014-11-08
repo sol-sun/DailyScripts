@@ -8,8 +8,7 @@ use Data::Dumper;
 use Math::Random::MT qw(srand rand);
 use List::Util qw(shuffle);
 
-
-#print Dumper &Question1_3();
+#&Question3_1();
 
 #srand(time() | $$);
 
@@ -102,6 +101,39 @@ sub Question1_3($){
 
   return @result_table;
 }
+
+sub Question3_1($){
+
+  my @result_table;
+
+
+  my $Sum_num = list_util_shuffle(15..30);
+  my @r_num = ( int($Sum_num * (1/3) ) .. ($Sum_num  * (2/3)) );  
+
+  my @row_1;
+  for my $num(0..2){
+    
+    $row_1[$num] = list_util_shuffle(@r_num);
+    @r_num = grep $_ ne $row_1[$num], @r_num;
+    
+  }
+  my @row_2;
+  for my $num(0..2){
+    $row_2[$num] = list_util_shuffle(@r_num);
+    @r_num = grep $_ ne $row_2[$num], @r_num;
+    
+  }
+  
+  my @row_3;
+  for(my $i=0;$i<3;$i++){
+    $row_3[$i] = $Sum_num -  $row_1[$i] - $row_2[$i] ;
+  }
+
+  @result_table = (\@row_1, \@row_2, \@row_3);
+
+  return @result_table;
+}
+
 
 
 sub list_util_shuffle{

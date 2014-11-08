@@ -15,7 +15,7 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-&Level3_1();
+&Level3_3();
 
 sub Level1_1($){
 
@@ -57,7 +57,7 @@ sub Level1_1($){
 	my $center_x = $x - 30;
 	my $center_y = (($y + 68) - 50);
 	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0], 'big');
-	
+
       }
       $counter++;
 
@@ -267,7 +267,10 @@ sub Level2_2($){ ## under development
 }
 
 
-sub Level3_1{
+sub Level3_1($){
+
+  my @questions = &IQ_Problem::Question3_1();
+
   ## create table
   $setoff_x = 71;
   $setoff_y = 63;
@@ -289,61 +292,173 @@ sub Level3_1{
       &Objects('square', $table_x[$i] + $move_y, $table_y[$j] + $move_x, $TableCell_size, "$i-$j", $table_color);
     }
   }
-
   #  &Objects( 'square', 306, 318, 583, 'Table', $table_color );
   
-return 1;
-
-  #  &objects( 'square', );
   my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
 	     ["Cell_2-1", "Cell_2-2", "Cell_2-3", "Cell_2-4"],
 	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
 	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
 	    );
   ##.
-  return 1;
-  for(my $i=0;$i<scalar(@ids);$i++){
-    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
 
-      if($i == 3 && $j == 3){
-	&Objects('question', 418, 368);
+  for(my $i=0;$i<$TableSize[1];$i++){
+    for(my $j=0;$j<$TableSize[0];$j++){
+
+      my $move_x = (4 - $TableSize[0]) * ($length_x/2);
+      my $move_y = (4 - $TableSize[1]) * ($length_y/2);
+
+      
+      if($i == ($TableSize[0] - 1) && $j == ($TableSize[1] - 1)){
+	&Objects('question', 418-$move_y , 368-$move_x);
 	next;
       }
       my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
       my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
 
       ## [0][i] rows
-      #if($j == 0 && $i == 0){
-      my @change_xy = &number_offset(20);
+
+      my @change_xy = &number_offset($questions[$i][$j]);
       my $center_x = $x - 6.5 + ($change_xy[0] * 1.7);
       my $center_y = (($y + 80) - 33) + ($change_xy[1] * 1.7);
-      &Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "20", 'big');
-      #Objects('triangle', $x, $y, 60, "$ids[$i][$j]", 'black');
+      &Objects('text',$center_x+$move_y,$center_y+$move_x,"$ids[$i][$j]"."center_Text", "$questions[$i][$j]", 'big');
 
-=pod	
+  
+    }
+  }
+  
+}
 
-      }elsif($j == 0 && $i == 1){
+sub Level3_2($){
 
-	my @change_xy = &number_offset(30);
-	my $center_x = $x - 30 + ($change_xy[0] * 1.7);
-	my $center_y = (($y + 68) - 50) + ($change_xy[1] * 1.7);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30", 'big');
+ #  横の三つの数字を3でわると一番右の数字になる!
+  
+  my @questions = &IQ_Problem::Question3_1();
 
-      }elsif($j == 0 && $i == 2){
+  @questions = (
+		[7, 5, 6, 6],
+		[5, 4, 3, 4],
+		[2, 9, 4, 5],
+	       );
+  
+  ## create table
+  $setoff_x = 71;
+  $setoff_y = 63;
 
-	my @change_xy = &number_offset(30);
-	my $center_x = $x - 30 + ($change_xy[0] * 1.7);
-	my $center_y = (($y + 68) - 50) + ($change_xy[1] * 1.7);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30", 'big');
+  ##set number between 1<=x<=4 (y, x)
+  
+  my @TableSize = qw(4 3);
 
+  my ($length_x, $length_y) = (125, 140);
+  my ($table_color, $TableCell_size) = ("#3c3c3c", 130);
+  my @table_x = qw( 93  235 377 519 );
+  my @table_y = qw( 100 225 350 475 );
+
+  for(my $i=0; $i < $TableSize[0];$i++){
+    for(my $j=0; $j < $TableSize[1];$j++){
+
+      my $move_x = (4 - $TableSize[0]) * ($length_x/2);
+      my $move_y = (4 - $TableSize[1]) * ($length_y/2);
+      
+      &Objects('square', $table_x[$i] + $move_x, $table_y[$j] + $move_y, $TableCell_size, "$i-$j", $table_color);
+    }
+  }
+  #  &Objects( 'square', 306, 318, 583, 'Table', $table_color );
+#return 1;  
+  my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3", "Cell_2-4"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
+	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
+	    );
+  ##.
+
+  for(my $i=0;$i<$TableSize[1];$i++){
+    for(my $j=0;$j<$TableSize[0];$j++){
+
+      my $move_x = (4 - $TableSize[0]) * ($length_x/2);
+      my $move_y = (4 - $TableSize[1]) * ($length_y/2);
+
+      if($j == ($TableSize[0] - 1) && $i == ($TableSize[1] - 1)){
+	#	&Objects('question', 418-$move_y , 368-$move_x);
+	last;
       }
-      ##.
+      my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
+      my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
 
-      my $object_x1 = (($setoff_x * 2) * 0) + $setoff_y;
-      my $object_x2 = (($setoff_x * 2) * 1) + $setoff_y;
-      my $object_y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+      ## [0][i] rows
 
-=cut
+      my @change_xy = &number_offset($questions[$i][$j]);
+      my $center_x = $x - 6.5 + ($change_xy[0] * 1.7);
+      my $center_y = (($y + 80) - 33) + ($change_xy[1] * 1.7);
+      &Objects('text',$center_x+$move_x,$center_y+$move_y,"$ids[$i][$j]"."center_Text", "$questions[$i][$j]", 'big');
+
+  
+    }
+  }
+  
+}
+
+sub Level3_3($){
+
+ #  単純に左みっつを足して右になる．
+  
+  my @questions = &IQ_Problem::Question3_1();
+
+  @questions = (
+		[15, 5, 6, 4],
+		[48, 9, 13, 26],
+		[38, 20, 3, 15],
+	       );
+  
+  ## create table
+  $setoff_x = 71;
+  $setoff_y = 63;
+
+  ##set number between 1<=x<=4 (y, x)
+  
+  my @TableSize = qw(4 3);
+
+  my ($length_x, $length_y) = (125, 140);
+  my ($table_color, $TableCell_size) = ("#3c3c3c", 130);
+  my @table_x = qw( 93  235 377 519 );
+  my @table_y = qw( 100 225 350 475 );
+
+  for(my $i=0; $i < $TableSize[0];$i++){
+    for(my $j=0; $j < $TableSize[1];$j++){
+
+      my $move_x = (4 - $TableSize[0]) * ($length_x/2);
+      my $move_y = (4 - $TableSize[1]) * ($length_y/2);
+      
+      &Objects('square', $table_x[$i] + $move_x, $table_y[$j] + $move_y, $TableCell_size, "$i-$j", $table_color);
+    }
+  }
+  #  &Objects( 'square', 306, 318, 583, 'Table', $table_color );
+#return 1;  
+  my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3", "Cell_2-4"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
+	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
+	    );
+  ##.
+
+  for(my $i=0;$i<$TableSize[1];$i++){
+    for(my $j=0;$j<$TableSize[0];$j++){
+
+      my $move_x = (4 - $TableSize[0]) * ($length_x/2);
+      my $move_y = (4 - $TableSize[1]) * ($length_y/2);
+
+      if($j == ($TableSize[0] - 1) && $i == ($TableSize[1] - 1)){
+	#	&Objects('question', 418-$move_y , 368-$move_x);
+	last;
+      }
+      my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
+      my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+
+      ## [0][i] rows
+
+      my @change_xy = &number_offset($questions[$i][$j]);
+      my $center_x = $x - 6.5 + ($change_xy[0] * 1.7);
+      my $center_y = (($y + 80) - 33) + ($change_xy[1] * 1.7);
+      &Objects('text',$center_x+$move_x,$center_y+$move_y,"$ids[$i][$j]"."center_Text", "$questions[$i][$j]", 'big');
 
   
     }
@@ -354,59 +469,155 @@ return 1;
 
 
 
+sub Level4_1($){ ## most easy IQ question  # one type objects are listed
 
-=pod
-sub Level1_1{ ## most easy IQ question  # one type objects are listed
+  ## 数字の差をたせば，ある数になる．アルゴリズムはまだ．
+  my @questions = &IQ_Problem::Question3_1();
 
-  my @questions = &IQ_Problem::Question1();
+  ## create table
+  $setoff_x = 71;
+  $setoff_y = 63;
+
+  ##set number between 1<=x<=4
+  my @TableSize = qw(3 3);
+
+  my ($length_x, $length_y) = (125, 140);
+  my ($table_color, $TableCell_size) = ("#3c3c3c", 130);
+  my @table_x = qw( 93  235 377 519 );
+  my @table_y = qw( 100 225 350 475 );
+  #  &Objects( 'square', 306, 318, 583, 'Table', $table_color );
   
-  ## Cell_3-3 is empty for set question_mark
-  my @ids = (
-	     ["Cell_1-1", "Cell_1-2", "Cell_1-3"],
-	     ["Cell_2-1", "Cell_2-2", "Cell_2-3"],
-	     ["Cell_3-1", "Cell_3-2", "Cell_3-3"]
+  
+  my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3", "Cell_2-4"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
+	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
 	    );
-  ##
-  my $counter = 0;
-  ## Question 1
+  ##.
+
   for(my $i=0;$i<scalar(@ids);$i++){
     for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
-      my $x = ( ($setoff_x * 2) * $j) + $setoff_x;
-      my $y = ( ($setoff_y * 2) * $i) + $setoff_y;
-      
-      &Objects('circle', $x, $y, "50", "$ids[$i][$j]"."_Circle");
-      # &Objects('triangle', $x, $y, 140, $ids[$i][$j]);
 
-      my @change_xy = &number_offset($questions[$counter][3]);
-      my $top_x = $x - 22 + $change_xy[0];
-      my $top_y = $y - 60 + $change_xy[1];
+      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", "13,  19,  27,  ?,  63", 'big');
+      last;
 
-      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3]);
-
-      @change_xy = &number_offset($questions[$counter][2]);
-      my $left_x = $x - 80 + $change_xy[0];
-      my $left_y = $y + 68 + $change_xy[1];
-      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2]);
-
-      @change_xy = &number_offset($questions[$counter][1]);
-      my $right_x = $x + 36 + $change_xy[0];
-      my $right_y = $y + 68 + $change_xy[1];
-      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1]);
-
-      if($j != 2 || $i != 2){
-	my $center_x = $x - 20;
-	my $center_y = ($left_y - 53);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0]);
-	
-      }
-      $counter++;
     }
   }
-  &Objects('question', 400, 400);
-
-  ##
 }
-=cut
+
+
+sub Level4_2($){ ## most easy IQ question  # one type objects are listed
+
+  ## 前4つの数字の和
+  
+  my @questions = &IQ_Problem::Question3_1();
+
+  ## create table
+  $setoff_x = 71;
+  $setoff_y = 63;
+
+  ##set number between 1<=x<=4
+  my @TableSize = qw(3 3);
+
+  my ($length_x, $length_y) = (125, 140);
+  my ($table_color, $TableCell_size) = ("#3c3c3c", 130);
+  my @table_x = qw( 93  235 377 519 );
+  my @table_y = qw( 100 225 350 475 );
+  #  &Objects( 'square', 306, 318, 583, 'Table', $table_color );
+
+
+  my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3", "Cell_2-4"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
+	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
+	    );
+  ##.
+
+  for(my $i=0;$i<scalar(@ids);$i++){
+    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+
+      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", "6, 7, 1, 9, 23, 40, 73, ?", 'big');
+      last;
+    }
+  }
+}
+
+
+sub Level4_3($){ ## most easy IQ question  # one type objects are listed
+
+  ## 最初2桁とあとの一桁の積が次の数
+  
+  my @questions = &IQ_Problem::Question3_1();
+
+  ## create table
+  $setoff_x = 71;
+  $setoff_y = 63;
+
+  ##set number between 1<=x<=4
+  my @TableSize = qw(3 3);
+
+  my ($length_x, $length_y) = (125, 140);
+  my ($table_color, $TableCell_size) = ("#3c3c3c", 130);
+  my @table_x = qw( 93  235 377 519 );
+  my @table_y = qw( 100 225 350 475 );
+  #  &Objects( 'square', 306, 318, 583, 'Table', $table_color );
+  
+  
+  my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3", "Cell_2-4"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
+	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
+	    );
+  ##.
+
+  for(my $i=0;$i<scalar(@ids);$i++){
+    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+
+      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", "759, 675, 335, 165, ?", 'big');
+      last;
+    }
+  }
+}
+
+
+sub Level4_4($){ ## most easy IQ question  # one type objects are listed
+
+  ## 二乗問題 すぐ実装できそう．
+
+  my @questions = &IQ_Problem::Question3_1();
+
+  ## create table
+  $setoff_x = 71;
+  $setoff_y = 63;
+
+  ##set number between 1<=x<=4
+  my @TableSize = qw(3 3);
+
+  my ($length_x, $length_y) = (125, 140);
+  my ($table_color, $TableCell_size) = ("#3c3c3c", 130);
+  my @table_x = qw( 93  235 377 519 );
+  my @table_y = qw( 100 225 350 475 );
+  #  &Objects( 'square', 306, 318, 583, 'Table', $table_color );
+  
+  
+  my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
+	     ["Cell_2-1", "Cell_2-2", "Cell_2-3", "Cell_2-4"],
+	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
+	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
+	    );
+  ##.
+
+  for(my $i=0;$i<scalar(@ids);$i++){
+    for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+
+      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", "1, 4, 16, 64, 256, ?", 'big');
+      last;
+    }
+  }
+  
+}
+
+
 
 sub number_offset{ 
 
@@ -615,7 +826,8 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
 			   id=>$id,
 			   x=>$x,
 			   y=>$y,
-			   'font-family'=>'Myriad Pro Black',
+			   #			   'font-family'=>'Myriad Pro Black',
+			   'font-family'=>'Futura Condensed ExtraBold',
 			   'font-weight'=>'bold',
 #			   'font-size'=> '55'
 			   'font-size'=> $text_size
