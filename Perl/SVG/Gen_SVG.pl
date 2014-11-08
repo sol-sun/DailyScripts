@@ -41,22 +41,22 @@ sub Level1_1($){
       my $top_x = $x - 30.5 + ($change_xy[0] * 1.7);
       my $top_y = $y - 85 + ($change_xy[1] * 1.7);
 
-      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3]);
+      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3], 'big');
 
       @change_xy = &number_offset($questions[$counter][2]);
       my $left_x = $x - 110 + ($change_xy[0] * 1.7);
       my $left_y = $y + 90 + ($change_xy[1] * 1.7);
-      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2]);
+      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2], 'big');
 
       @change_xy = &number_offset($questions[$counter][1]);
       my $right_x = $x + 50 + ($change_xy[0] * 1.7);
       my $right_y = $y + 90 + ($change_xy[1] * 1.7);
-      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1]);
+      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1], 'big');
 
       if($j != 1 || $i != 1){
 	my $center_x = $x - 30;
 	my $center_y = (($y + 68) - 50);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0]);
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0], 'big');
 	
       }
       $counter++;
@@ -91,23 +91,22 @@ sub Level1_2($){
       my $top_x = $x - 30.5 + ($change_xy[0] * 1.7);
       my $top_y = $y - 85 + ($change_xy[1] * 1.7);
 
-      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3]);
+      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3], 'big');
 
       @change_xy = &number_offset($questions[$counter][2]);
       my $left_x = $x - 110 + ($change_xy[0] * 1.7);
       my $left_y = $y + 90 + ($change_xy[1] * 1.7);
-      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2]);
+      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2], 'big');
 
       @change_xy = &number_offset($questions[$counter][1]);
       my $right_x = $x + 50 + ($change_xy[0] * 1.7);
       my $right_y = $y + 90 + ($change_xy[1] * 1.7);
-      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1]);
+      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1], 'big');
 
       if($j != 1 || $i != 1){
 	my $center_x = $x - 30;
 	my $center_y = (($y + 68) - 50);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0]);
-	
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0], 'big');
       }
       $counter++;
 
@@ -142,23 +141,23 @@ sub Level1_3($){
       my $top_x = $x - 30.5 + ($change_xy[0] * 1.7);
       my $top_y = $y - 85 + ($change_xy[1] * 1.7);
 
-      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3]);
+      &Objects('text',$top_x,$top_y,"$ids[$i][$j]"."top_Text", $questions[$counter][3], 'big');
 
       @change_xy = &number_offset($questions[$counter][2]);
       my $left_x = $x - 110 + ($change_xy[0] * 1.7);
       my $left_y = $y + 90 + ($change_xy[1] * 1.7);
-      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2]);
+      &Objects('text',$left_x,$left_y,"$ids[$i][$j]"."left_Text",$questions[$counter][2], 'big');
 
       @change_xy = &number_offset($questions[$counter][1]);
       my $right_x = $x + 50 + ($change_xy[0] * 1.7);
       my $right_y = $y + 90 + ($change_xy[1] * 1.7);
-      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1]);
+      &Objects('text',$right_x,$right_y,"$ids[$i][$j]"."right_Text",$questions[$counter][1], 'big');
 
       if($j != 1 || $i != 1){
 	@change_xy = &number_offset($questions[$counter][0]);
 	my $center_x = $x - 30 + ($change_xy[0] * 1.7);
 	my $center_y = (($y + 68) - 50) + ($change_xy[1] * 1.7);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0]);
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", $questions[$counter][0], 'big');
 	
       }
       $counter++;
@@ -269,31 +268,31 @@ sub Level2_2($){ ## under development
 
 
 sub Level3_1{
+  ## create table
   $setoff_x = 71;
   $setoff_y = 63;
-  my $table_color = "skyblue";
-  &Objects( 'square', 305, 318, 590, 'Table', $table_color );
 
-  &Objects( 'square', 91, 100, 130, '1-1', $table_color );
-  &Objects( 'square', 233, 100, 130 , '1-2', $table_color );
-  &Objects( 'square', 375, 100, 130, '1-3', $table_color );
-  &Objects( 'square', 516, 100, 130, '1-4', $table_color );
+  ##set number between 1<=x<=4
+  my @TableSize = qw(3 3);
 
-  &Objects( 'square', 91, 225, 132, '2-1', $table_color );
-  &Objects( 'square', 233, 225, 132 , '2-2', $table_color );
-  &Objects( 'square', 375, 225, 132, '2-3', $table_color );
-  &Objects( 'square', 516, 225, 132, '2-4', $table_color );
+  my ($length_x, $length_y) = (125, 140);
+  my ($table_color, $TableCell_size) = ("#3c3c3c", 130);
+  my @table_x = qw( 93  235 377 519 );
+  my @table_y = qw( 100 225 350 475 );
 
-  &Objects( 'square', 91, 350, 132, '3-1', $table_color );
-  &Objects( 'square', 233, 350, 132 , '3-2', $table_color);
-  &Objects( 'square', 375, 350, 132, '3-3', $table_color );
-  &Objects( 'square', 516, 350, 132, '3-4', $table_color );
+  for(my $i=0; $i < $TableSize[1];$i++){
+    for(my $j=0; $j < $TableSize[0];$j++){
 
-  &Objects( 'square', 91, 475, 132, '4-1', $table_color );
-  &Objects( 'square', 233, 475, 132, '4-2', $table_color );
-  &Objects( 'square', 375, 475, 132, '4-3', $table_color );
-  &Objects( 'square', 516, 475, 132, '4-4', $table_color );
+      my $move_x = (4 - $TableSize[0]) * ($length_x/2);
+      my $move_y = (4 - $TableSize[1]) * ($length_y/2);
+      
+      &Objects('square', $table_x[$i] + $move_y, $table_y[$j] + $move_x, $TableCell_size, "$i-$j", $table_color);
+    }
+  }
 
+  #  &Objects( 'square', 306, 318, 583, 'Table', $table_color );
+  
+return 1;
 
   #  &objects( 'square', );
   my @ids = (["Cell_1-1", "Cell_1-2", "Cell_1-3", "Cell_1-4"],
@@ -301,33 +300,41 @@ sub Level3_1{
 	     ["Cell_3-1", "Cell_3-2", "Cell_3-3", "Cell_3-4"],
 	     ["Cell_4-1", "Cell_4-2", "Cell_4-3", "Cell_4-4"]
 	    );
-
+  ##.
+  return 1;
   for(my $i=0;$i<scalar(@ids);$i++){
     for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
+
+      if($i == 3 && $j == 3){
+	&Objects('question', 418, 368);
+	next;
+      }
       my $x = ( ($setoff_x * 2) * $j ) + $setoff_x;
       my $y = ( ($setoff_y * 2) * $i ) + $setoff_y;
 
       ## [0][i] rows
-#      if($j == 0 && $i == 0){
-	my @change_xy = &number_offset(30);
-	my $center_x = $x - 18 + ($change_xy[0] * 1.7);
-	my $center_y = (($y + 80) - 33) + ($change_xy[1] * 1.7);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30");
-	#	&Objects('triangle', $x, $y, 60, "$ids[$i][$j]", 'black');
+      #if($j == 0 && $i == 0){
+      my @change_xy = &number_offset(20);
+      my $center_x = $x - 6.5 + ($change_xy[0] * 1.7);
+      my $center_y = (($y + 80) - 33) + ($change_xy[1] * 1.7);
+      &Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "20", 'big');
+      #Objects('triangle', $x, $y, 60, "$ids[$i][$j]", 'black');
+
 =pod	
+
       }elsif($j == 0 && $i == 1){
 
 	my @change_xy = &number_offset(30);
 	my $center_x = $x - 30 + ($change_xy[0] * 1.7);
 	my $center_y = (($y + 68) - 50) + ($change_xy[1] * 1.7);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30");
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30", 'big');
 
       }elsif($j == 0 && $i == 2){
 
 	my @change_xy = &number_offset(30);
 	my $center_x = $x - 30 + ($change_xy[0] * 1.7);
 	my $center_y = (($y + 68) - 50) + ($change_xy[1] * 1.7);
-	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30");
+	&Objects('text',$center_x,$center_y,"$ids[$i][$j]"."center_Text", "30", 'big');
 
       }
       ##.
@@ -335,8 +342,10 @@ sub Level3_1{
       my $object_x1 = (($setoff_x * 2) * 0) + $setoff_y;
       my $object_x2 = (($setoff_x * 2) * 1) + $setoff_y;
       my $object_y = ( ($setoff_y * 2) * $i ) + $setoff_y;
+
 =cut
 
+  
     }
   }
   
@@ -593,16 +602,23 @@ C98.522,245.425,96.475,253.175,96.475,253.175L96.475,253.175z
     
   }elsif($type eq 'text'){
 
-    my ($x, $y, $id,$cdata) = @_;
+    my ($x, $y, $id,$cdata, $text_size) = @_;
 
+    if($text_size eq 'small'){
+      $text_size = 40;
+    }else{
+      $text_size = 55;
+    }
+    
+    
     my $text1 = $svg->text(
 			   id=>$id,
 			   x=>$x,
 			   y=>$y,
 			   'font-family'=>'Myriad Pro Black',
 			   'font-weight'=>'bold',
-			   'font-size'=> '55'
-#			   'font-size'=> '40'
+#			   'font-size'=> '55'
+			   'font-size'=> $text_size
 			  )->cdata($cdata);
     return 1;
   }
