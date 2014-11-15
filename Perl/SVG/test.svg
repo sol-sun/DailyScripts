@@ -1,0 +1,31 @@
+
+<svg height="600" width="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<polygon id="0-0" points="28,105 158,105 158,217.583302491977 28,217.583302491977 " style="stroke: #3c3c3c; stroke-width: 7; fill: none; background: black" />
+	<polygon id="0-1" points="28,230 158,230 158,342.583302491977 28,342.583302491977 " style="background: black; fill: none; stroke-width: 7; stroke: #3c3c3c" />
+	<polygon id="0-2" points="28,355 158,355 158,467.583302491977 28,467.583302491977 " style="stroke-width: 7; stroke: #3c3c3c; background: black; fill: none" />
+	<polygon id="1-0" points="170,105 300,105 300,217.583302491977 170,217.583302491977 " style="stroke-width: 7; stroke: #3c3c3c; background: black; fill: none" />
+	<polygon id="1-1" points="170,230 300,230 300,342.583302491977 170,342.583302491977 " style="stroke-width: 7; stroke: #3c3c3c; background: black; fill: none" />
+	<polygon id="1-2" points="170,355 300,355 300,467.583302491977 170,467.583302491977 " style="stroke: #3c3c3c; stroke-width: 7; fill: none; background: black" />
+	<polygon id="2-0" points="312,105 442,105 442,217.583302491977 312,217.583302491977 " style="stroke-width: 7; stroke: #3c3c3c; background: black; fill: none" />
+	<polygon id="2-1" points="312,230 442,230 442,342.583302491977 312,342.583302491977 " style="background: black; fill: none; stroke-width: 7; stroke: #3c3c3c" />
+	<polygon id="2-2" points="312,355 442,355 442,467.583302491977 312,467.583302491977 " style="background: black; fill: none; stroke-width: 7; stroke: #3c3c3c" />
+	<polygon id="3-0" points="454,105 584,105 584,217.583302491977 454,217.583302491977 " style="stroke-width: 7; stroke: #3c3c3c; background: black; fill: none" />
+	<polygon id="3-1" points="454,230 584,230 584,342.583302491977 454,342.583302491977 " style="stroke: #3c3c3c; stroke-width: 7; fill: none; background: black" />
+	<polygon id="3-2" points="454,355 584,355 584,467.583302491977 454,467.583302491977 " style="fill: none; background: black; stroke: #3c3c3c; stroke-width: 7" />
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_1-1center_Text" x="79.8" y="180">7</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_1-2center_Text" x="221.8" y="180">3</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_1-3center_Text" x="363.8" y="180">5</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_1-4center_Text" x="505.8" y="180">5</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_2-1center_Text" x="79.8" y="306">8</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_2-2center_Text" x="221.8" y="306">4</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_2-3center_Text" x="363.8" y="306">9</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_2-4center_Text" x="505.8" y="306">7</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_3-1center_Text" x="64.5" y="432">19</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_3-2center_Text" x="221.8" y="432">4</text>
+	<text font-family="Futura Condensed ExtraBold" font-size="55" font-weight="bold" id="Cell_3-3center_Text" x="363.8" y="432">7</text>
+	<!-- 
+	Generated using the Perl SVG Module V2.59
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
+</svg>

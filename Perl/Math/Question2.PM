@@ -8,7 +8,7 @@ use Data::Dumper;
 use Math::Random::MT qw(srand rand);
 use List::Util qw(shuffle);
 
-#&Question3_2();
+#&Question3_1();
 
 #srand(time() | $$);
 
@@ -108,7 +108,7 @@ sub Question3_1($){
 
 
   my $Sum_num = list_util_shuffle(15..30);
-  my @r_num = ( int($Sum_num * (1/3) ) .. int($Sum_num  * (2/3)) );  
+  my @r_num = ( int($Sum_num * (1/3) ) .. ($Sum_num  * (2/3)) );  
 
   my @row_1;
   for my $num(0..2){
@@ -134,31 +134,7 @@ sub Question3_1($){
   return @result_table;
 }
 
-sub Question3_2($){
-  
-  my @result_table;
-  my @number_pool = (15, 21, 30);
 
-  $result_table[0][3] = 5;
-  $result_table[1][3] = 7;
-  $result_table[2][3] = 10;
-
-  for(my $i=0;$i<scalar(@number_pool);$i++ ){
-    my @r_num = ( int($number_pool[$i] * (1/3)) .. int($number_pool[$i] * (2/3)) );
-
-    my $num1 = list_util_shuffle(@r_num);
-    @r_num = ( int(($number_pool[$i] - $num1) * (1/3) )..int( ($number_pool[$i] - $num1) * (2/3)));
-    my $num2 = list_util_shuffle(@r_num);
-    my $num3 = $number_pool[$i] - ($num1 + $num2);
-    
-    $result_table[$i][0] = $num1;
-    $result_table[$i][1] = $num2;
-    $result_table[$i][2] = $num3;
-  }
-
-  return @result_table;
-
-}
 
 sub list_util_shuffle{
   if(scalar(@_) == 2){

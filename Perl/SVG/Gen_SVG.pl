@@ -15,7 +15,7 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-&Level3_3();
+&Level3_2();
 
 sub Level1_1($){
 
@@ -269,6 +269,7 @@ sub Level2_2($){ ## under development
 
 sub Level3_1($){
 
+  ##各上列2つの数字を足すと，15から30までの数字のどれかになる．
   my @questions = &IQ_Problem::Question3_1();
 
   ## create table
@@ -330,15 +331,9 @@ sub Level3_1($){
 
 sub Level3_2($){
 
- #  横の三つの数字を3でわると一番右の数字になる!
-  
-  my @questions = &IQ_Problem::Question3_1();
+  # 横の三つの数字を3でわると一番右の数字になる!
 
-  @questions = (
-		[7, 5, 6, 6],
-		[5, 4, 3, 4],
-		[2, 9, 4, 5],
-	       );
+  my @questions = &IQ_Problem::Question3_2();
   
   ## create table
   $setoff_x = 71;
