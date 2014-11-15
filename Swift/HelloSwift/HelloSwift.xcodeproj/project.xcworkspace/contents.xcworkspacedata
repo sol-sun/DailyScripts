@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:GameDemo.xcodeproj">
+      location = "self:HelloSwift.xcodeproj">
    </FileRef>
 </Workspace>

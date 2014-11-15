@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  GameDemo
+//  HelloSwift
 //
-//  Created by 宮原 太陽 on 2014/11/10.
+//  Created by 宮原 太陽 on 2014/11/15.
 //  Copyright (c) 2014年 Sol-Sun. All rights reserved.
 //
 
