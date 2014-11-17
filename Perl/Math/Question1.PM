@@ -8,7 +8,8 @@ use Data::Dumper;
 use Math::Random::MT qw(srand rand);
 use List::Util qw(shuffle);
 
-&Question3_3();
+
+  &Question4_1();
 
 #srand(time() | $$);
 
@@ -32,7 +33,7 @@ sub Question1_1($){
       $question_num -= $num;
     }
     push @results, $question_num;
-
+    
     push @result_table, [@results];
   }
 
@@ -177,6 +178,22 @@ sub Question3_3($){
   }
 
   return @result_table;
+}
+
+sub Question4_1($){
+  my @questions;
+  
+  push @questions, eval(list_util_shuffle(3..8));
+  push @questions, eval(list_util_shuffle( ($questions[0]+5)..($questions[0] + 30) ));
+  push @questions, eval(list_util_shuffle( ($questions[1] + 5)..($questions[1] + 30) ));
+
+  for my $i(2..5){
+    push @questions,  eval(($questions[$i] * 2) - $questions[($i-2)]);
+  }
+
+  $questions[-1] = '?';
+  
+  return (join ', ', @questions);
 }
 
 

@@ -15,7 +15,7 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-&Level3_3();
+&Level4_1();
 
 sub Level1_1($){
 
@@ -398,18 +398,10 @@ sub Level3_3($)
   
   my @questions = &IQ_Problem::Question3_3();
 
-=pod
-  @questions = (
-		[15, 5, 6, 26],
-		[48, 9, 13, 70],
-		[38, 20, 3, 61],
-	       );
-=cut
   
   ## create table
   $setoff_x = 71;
   $setoff_y = 63;
-
   
   
   ##set number between 1<=x<=4 (y, x)
@@ -471,7 +463,7 @@ sub Level3_3($)
 sub Level4_1($){ ## most easy IQ question  # one type objects are listed
 
   ## 数字の差をたせば，ある数になる．アルゴリズムはまだ．
-  my @questions = &IQ_Problem::Question3_1();
+  my $questions = &IQ_Problem::Question4_1();
 
   ## create table
   $setoff_x = 71;
@@ -497,9 +489,8 @@ sub Level4_1($){ ## most easy IQ question  # one type objects are listed
   for(my $i=0;$i<scalar(@ids);$i++){
     for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
 
-      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", "13,  19,  27,  ?,  63", 'big');
+      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", $questions, 'big');
       last;
-
     }
   }
 }
