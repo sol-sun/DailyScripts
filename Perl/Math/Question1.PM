@@ -9,9 +9,7 @@ use Math::Random::MT qw(srand rand);
 use List::Util qw(shuffle);
 
 
-  &Question4_1();
-
-#srand(time() | $$);
+#&Question4_4();
 
 #### 3 numbers around circles. these solution is sum of three numbers which pointed center of circle.
 ### Question1 subroutine return 4 number for IQ question.
@@ -194,6 +192,58 @@ sub Question4_1($){
   $questions[-1] = '?';
   
   return (join ', ', @questions);
+}
+
+sub Question4_2($){
+  my @questions;
+
+  push @questions, eval(list_util_shuffle(3..10));
+  push @questions, eval(list_util_shuffle(10..30));
+
+  for my $i(0..4){
+    push @questions, eval($questions[$i] + $questions[($i+1)]);
+  }
+
+  $questions[-1] = '?';
+
+  return (join ', ', @questions);
+}
+
+sub Question4_3($){
+  my @questions;
+
+  my $sum1 = eval(list_util_shuffle(3..10));
+  my $sum2 = eval(list_util_shuffle(grep $_ ne $sum1, (3..10)));
+
+  push @questions, eval(list_util_shuffle(3..10));
+    
+  for my $i(0..4){
+    if($i%2 == 0){
+      push @questions, eval($questions[$i] + $sum1);
+    }else{
+      push @questions, eval($questions[$i] + $sum2);
+    }
+  }
+
+  $questions[-1] = '?';
+  
+  return (join ', ', @questions);
+
+}
+
+sub Question4_4($){
+  my @questions;
+
+  my $base_number = list_util_shuffle(2..4);
+  
+  for my $i(0..4){
+    push @questions, eval($base_number ** $i);
+  }
+
+  $questions[-1] = '?';
+
+  return (join ', ', @questions);
+  
 }
 
 

@@ -15,7 +15,7 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-&Level4_1();
+&Level4_4();
 
 sub Level1_1($){
 
@@ -462,7 +462,7 @@ sub Level3_3($)
 
 sub Level4_1($){ ## most easy IQ question  # one type objects are listed
 
-  ## 数字の差をたせば，ある数になる．アルゴリズムはまだ．
+  ## 数字の差をたせば，ある数になる．
   my $questions = &IQ_Problem::Question4_1();
 
   ## create table
@@ -498,9 +498,9 @@ sub Level4_1($){ ## most easy IQ question  # one type objects are listed
 
 sub Level4_2($){ ## most easy IQ question  # one type objects are listed
 
-  ## 前4つの数字の和
+  ## 前2つの数字の和が次にくる数字になる
   
-  my @questions = &IQ_Problem::Question3_1();
+  my $questions = &IQ_Problem::Question4_2();
 
   ## create table
   $setoff_x = 71;
@@ -526,7 +526,7 @@ sub Level4_2($){ ## most easy IQ question  # one type objects are listed
   for(my $i=0;$i<scalar(@ids);$i++){
     for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
 
-      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", "6, 7, 1, 9, 23, 40, 73, ?", 'big');
+      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", $questions, 'big');
       last;
     }
   }
@@ -535,9 +535,9 @@ sub Level4_2($){ ## most easy IQ question  # one type objects are listed
 
 sub Level4_3($){ ## most easy IQ question  # one type objects are listed
 
-  ## 最初2桁とあとの一桁の積が次の数
+  ## 2つの数字を決めて、交互に足していく問題．
   
-  my @questions = &IQ_Problem::Question3_1();
+  my $questions = &IQ_Problem::Question4_3();
 
   ## create table
   $setoff_x = 71;
@@ -563,8 +563,9 @@ sub Level4_3($){ ## most easy IQ question  # one type objects are listed
   for(my $i=0;$i<scalar(@ids);$i++){
     for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
 
-      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", "759, 675, 335, 165, ?", 'big');
+      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", $questions, 'big');
       last;
+
     }
   }
 }
@@ -572,9 +573,9 @@ sub Level4_3($){ ## most easy IQ question  # one type objects are listed
 
 sub Level4_4($){ ## most easy IQ question  # one type objects are listed
 
-  ## 二乗問題 すぐ実装できそう．
+  ## 二乗問題 (2..3)
 
-  my @questions = &IQ_Problem::Question3_1();
+  my $questions = &IQ_Problem::Question4_4();
 
   ## create table
   $setoff_x = 71;
@@ -600,7 +601,7 @@ sub Level4_4($){ ## most easy IQ question  # one type objects are listed
   for(my $i=0;$i<scalar(@ids);$i++){
     for(my $j=0;$j<scalar(@{$ids[$i]});$j++){
 
-      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", "1, 4, 16, 64, 256, ?", 'big');
+      &Objects('text', 0, 300, "$ids[$i][$j]"."center_Text", $questions, 'big');
       last;
     }
   }
