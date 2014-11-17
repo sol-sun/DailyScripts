@@ -8,7 +8,7 @@ use Data::Dumper;
 use Math::Random::MT qw(srand rand);
 use List::Util qw(shuffle);
 
-#&Question3_2();
+&Question3_3();
 
 #srand(time() | $$);
 
@@ -137,6 +137,8 @@ sub Question3_1($){
 sub Question3_2($){
   
   my @result_table;
+
+  #とりあえず3で割り切れる数だけ
   my @number_pool = (15, 21, 30);
 
   $result_table[0][3] = 5;
@@ -159,6 +161,24 @@ sub Question3_2($){
   return @result_table;
 
 }
+
+sub Question3_3($){
+  my @result_table;
+  my @number_pool = (5..30);
+
+  for(my $i=0;$i<4;$i++){
+    my $result = 0;
+    for(my $j=0;$j<3;$j++){
+      $result_table[$i][$j] = list_util_shuffle(@number_pool);
+      @number_pool = grep $_ ne $result_table[$i][$j], @number_pool;
+      $result += $result_table[$i][$j]
+    }
+    $result_table[$i][3] = $result;
+  }
+
+  return @result_table;
+}
+
 
 sub list_util_shuffle{
   if(scalar(@_) == 2){

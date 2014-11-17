@@ -15,7 +15,7 @@ my $setoff_y = 100;
 
 my $svg = SVG->new(width=>${sm_width}, height=>${sm_height});
 
-&Level3_2();
+&Level3_3();
 
 sub Level1_1($){
 
@@ -392,25 +392,29 @@ sub Level3_2($){
   
 }
 
-sub Level3_3($){
-
+sub Level3_3($)
+{
  #  単純に左みっつを足して右になる．
   
-  my @questions = &IQ_Problem::Question3_1();
+  my @questions = &IQ_Problem::Question3_3();
 
+=pod
   @questions = (
-		[15, 5, 6, 4],
-		[48, 9, 13, 26],
-		[38, 20, 3, 15],
+		[15, 5, 6, 26],
+		[48, 9, 13, 70],
+		[38, 20, 3, 61],
 	       );
+=cut
   
   ## create table
   $setoff_x = 71;
   $setoff_y = 63;
 
+  
+  
   ##set number between 1<=x<=4 (y, x)
   
-  my @TableSize = qw(4 3);
+  my @TableSize = qw(4 4);
 
   my ($length_x, $length_y) = (125, 140);
   my ($table_color, $TableCell_size) = ("#3c3c3c", 130);
