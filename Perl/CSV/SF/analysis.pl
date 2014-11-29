@@ -55,9 +55,19 @@ for(my $i=0;$i<34;$i++){
   $reorder[$i] = $reorder{$sences[$i]};
   $sences[$i] = "\"$sences[$i]\"";
 }
+
+my $diverg;
+for(@counts){
+  $diverg += ($_ - 10)**2;
+}
+
+#print sqrt($diverg);
+
+
 my $sence = join ', ', @sences;
 my $count = join ', ', @counts;
 my $reorder = join ', ', @reorder;
+
 
 ## Generate R::Graph
 
