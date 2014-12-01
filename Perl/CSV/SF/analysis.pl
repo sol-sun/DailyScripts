@@ -61,7 +61,7 @@ for(@counts){
   $diverg += ($_ - 10)**2;
 }
 
-#print sqrt($diverg);
+print sqrt($diverg);
 
 
 my $sence = join ', ', @sences;
