@@ -58,7 +58,7 @@ for(my $i=0;$i<34;$i++){
 
 my $diverg;
 for(@counts){
-  $diverg += ($_ - 10)**2;
+  $diverg += ($_ - 10.41176)**2;
 }
 
 print sqrt($diverg);
