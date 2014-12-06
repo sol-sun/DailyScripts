@@ -14,7 +14,9 @@ my $data = $xml->XMLin('questionSF.xml');
 
 $data = $$data{'lin:language'};
 
+print scalar(keys %$data);
 
+  __END__
 my @CSV_Text;
 
 foreach my $key1( keys %$data ){
@@ -42,7 +44,6 @@ foreach my $key1( keys %$data ){
     for(my $i=1;$i<=scalar(@Question_LEFT);$i++){
       $CSV_Text[$i] .= qq(\t$Question_LEFT[($i-1)]\t$Question_RIGHT[($i-1)]);
     }
-
 
 }
 
